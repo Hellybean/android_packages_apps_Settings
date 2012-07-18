@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/edge_swipe_title">
+
+    <ListPreference android:key="edge_swipe_left"
+            android:title="@string/edge_swipe_left_title"
+            android:entries="@array/edge_swipe_entries"
+            android:entryValues="@array/edge_swipe_values"
+            android:persistent="false"
+            android:defaultValue="0"/>
+
+    <ListPreference android:key="edge_swipe_top"
+            android:title="@string/edge_swipe_top_title"
+            android:entries="@array/edge_swipe_entries"
+            android:entryValues="@array/edge_swipe_values"
+            android:persistent="false"
+            android:defaultValue="0"/>
+
+    <ListPreference android:key="edge_swipe_right"
+            android:title="@string/edge_swipe_right_title"
+            android:entries="@array/edge_swipe_entries"
+            android:entryValues="@array/edge_swipe_values"
+            android:persistent="false"
+            android:defaultValue="0"/>
+
+    <ListPreference android:key="edge_swipe_bottom"
+            android:title="@string/edge_swipe_bottom_title"
+            android:entries="@array/edge_swipe_entries"
+            android:entryValues="@array/edge_swipe_values"
+            android:persistent="false"
+            android:defaultValue="0"/>
+
+    <CheckBoxPreference
+            android:key="edge_swipe_move"
+            android:title="@string/edge_swipe_move_title"
+            android:summary="@string/edge_swipe_move_summary"
+            android:persistent="false"/>
+
+    <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="edge_swipe_start"
+            android:title="@string/edge_swipe_start"
+            android:max="100"
+            android:defaultValue="35" />
+
+    <com.android.settings.cyanogenmod.SeekBarPreference
+            android:key="edge_swipe_distance"
+            android:title="@string/edge_swipe_distance"
+            android:max="150"
+            android:defaultValue="40" />
+
+</PreferenceScreen>

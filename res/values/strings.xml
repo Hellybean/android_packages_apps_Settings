@@ -4929,4 +4929,26 @@
     <string name="sms_security_check_limit_default">30 (Default)</string>
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
+
+    <string name="tablet_mode_title">Tablet mode</string>
+    <string name="tablet_flipped_title">Flip notifications and buttons</string>
+    <string name="navigation_controls_title">Navigation controls</string>
+
+    <string name="edge_swipe_title">Edge swipe navigation</string>
+    <string name="edge_swipe_right_title">Right edge swipe</string>
+    <string name="edge_swipe_left_title">Left edge swipe</string>
+    <string name="edge_swipe_top_title">Top edge swipe</string>
+    <string name="edge_swipe_bottom_title">Bottom edge swipe</string>
+    <string name="edge_swipe_move_title">Capture touch events</string>
+    <string name="edge_swipe_move_summary">Capture touch move events after initial touch when edge swiping</string>
+    <string name="edge_swipe_none">No action</string>
+    <string name="edge_swipe_expand">Expand notifications</string>
+    <string name="edge_swipe_hide">Hide combined status bar</string>
+    <string name="edge_swipe_recents">Show recents panel</string>
+    <string name="edge_swipe_back">Back</string>
+    <string name="edge_swipe_home">Home</string>
+    <string name="edge_swipe_menu">Menu</string>
+    <string name="edge_swipe_start">Edge distance</string>
+    <string name="edge_swipe_distance">Swipe distance</string>
+
 </resources>

@@ -50,6 +50,7 @@
 
     <!-- Display settings.  The delay in inactivity before the screen is turned off. These are shown in a list dialog. -->
     <string-array name="screen_timeout_entries">
+        <item>No timeout</item>
         <item>15 seconds</item>
         <item>30 seconds</item>
         <item>1 minute</item>
@@ -61,6 +62,8 @@
 
     <!-- Do not translate. -->
     <string-array name="screen_timeout_values" translatable="false">
+        <!-- Do not translate. -->
+        <item>-1</item>
         <!-- Do not translate. -->
         <item>15000</item>
         <!-- Do not translate. -->
@@ -1309,6 +1312,26 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+
+    <string-array name="edge_swipe_entries">
+        <item>@string/edge_swipe_none</item>
+        <item>@string/edge_swipe_expand</item>
+        <item>@string/edge_swipe_hide</item>
+        <item>@string/edge_swipe_recents</item>
+        <item>@string/edge_swipe_back</item>
+        <item>@string/edge_swipe_home</item>
+        <item>@string/edge_swipe_menu</item>
+    </string-array>
+
+    <string-array name="edge_swipe_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
     </string-array>
 
     <string-array name="lockscreen_background_entries" translatable="false">
