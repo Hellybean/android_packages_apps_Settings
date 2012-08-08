@@ -4076,6 +4076,8 @@
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
+    <string name="ns_tools_settings_title">NS Tools</string>
+
     <!-- User settings -->
     <skip/>
 

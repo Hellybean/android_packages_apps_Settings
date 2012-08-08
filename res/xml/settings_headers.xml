@@ -91,6 +91,16 @@
         android:fragment="com.android.settings.cyanogenmod.SystemSettings"
         android:title="@string/system_settings_title" />
 
+   <header
+		android:id="@+id/ns_tools_settings"
+		android:title="@string/ns_tools_settings_title"
+		android:icon="@drawable/ic_ns_tools">
+	<intent
+		  android:action="android.intent.action.MAIN"
+		  android:targetPackage="mobi.cyann.nstools"
+		  android:targetClass="mobi.cyann.nstools.MainActivity" />
+   </header>
+
     <!-- DEVICE -->
     <header android:title="@string/header_category_device" />
 
