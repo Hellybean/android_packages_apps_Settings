@@ -4076,7 +4076,8 @@
     "system_update_settings_list_item_title" in this project. [CHAR LIMIT=25] -->
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
-    <string name="ns_tools_settings_title">NS Tools</string>
+    <string name="devil_kernel_config_title">Devil Kernel Config</string>
+    <string name="devil_kernel_manager_title">Devil Kernel Manager</string>
 
     <!-- User settings -->
     <skip/>

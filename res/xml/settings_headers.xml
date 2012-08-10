@@ -92,13 +92,23 @@
         android:title="@string/system_settings_title" />
 
    <header
-		android:id="@+id/ns_tools_settings"
-		android:title="@string/ns_tools_settings_title"
-		android:icon="@drawable/ic_ns_tools">
+		android:id="@+id/devil_kernel_config"
+		android:title="@string/devil_kernel_config_title"
+		android:icon="@drawable/ic_devil_config">
 	<intent
 		  android:action="android.intent.action.MAIN"
-		  android:targetPackage="mobi.cyann.nstools"
-		  android:targetClass="mobi.cyann.nstools.MainActivity" />
+		  android:targetPackage="de.hilbring.android.devilkernelconfig"
+		  android:targetClass="de.hilbring.android.devilkernelconfig.MainActivity" />
+   </header>
+
+   <header
+		android:id="@+id/devil_kernel_manager"
+		android:title="@string/devil_kernel_manager_title"
+		android:icon="@drawable/ic_devil_manager">
+	<intent
+		  android:action="android.intent.action.MAIN"
+		  android:targetPackage="com.metalignus.devilappsgs"
+		  android:targetClass="com.metalignus.devilappsgs.MainActivity" />
    </header>
 
     <!-- DEVICE -->
