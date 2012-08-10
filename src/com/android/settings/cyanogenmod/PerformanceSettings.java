@@ -16,6 +16,7 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.ListPreference;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -45,9 +47,13 @@ public class PerformanceSettings extends SettingsPreferenceFragment
 
     private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
 
+    private static final String KEY_HIGH_END_GFX = "high_end_gfx";
+
     private ListPreference mUseDitheringPref;
 
     private CheckBoxPreference mUse16bppAlphaPref;
+
+    private CheckBoxPreference mHighEndGfx;
 
     private AlertDialog alertDialog;
 
@@ -71,6 +77,16 @@ public class PerformanceSettings extends SettingsPreferenceFragment
             String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
             mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
 
+            boolean isHighEndGfx = ActivityManager.isHighEndGfx(getActivity().getWindowManager()
+                                                                .getDefaultDisplay());
+            mHighEndGfx = (CheckBoxPreference) findPreference(KEY_HIGH_END_GFX);
+            if(isHighEndGfx) {
+                getPreferenceScreen().removePreference(mHighEndGfx);
+            } else {
+                mHighEndGfx.setChecked((Settings.System.getInt(getContentResolver(),
+                                                               Settings.System.HIGH_END_GFX_ENABLED, 0) == 1));
+            }
+
             /* Display the warning dialog */
             alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle(R.string.performance_settings_warning_title);
@@ -92,6 +108,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment
         if (preference == mUse16bppAlphaPref) {
             SystemProperties.set(USE_16BPP_ALPHA_PROP,
                     mUse16bppAlphaPref.isChecked() ? "1" : "0");
+        } else if (preference == mHighEndGfx) {
+            Settings.System.putInt(getContentResolver(),
+                                   Settings.System.HIGH_END_GFX_ENABLED, mHighEndGfx.isChecked() ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
