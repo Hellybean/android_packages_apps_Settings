@@ -23,9 +23,11 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.IWindowManager;
 
@@ -42,10 +44,13 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_DRAWER_TABLET = "notification_drawer_tablet";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
+    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
     private ListPreference mFontSizePref;
     private PreferenceScreen mPhoneDrawer;
     private PreferenceScreen mTabletDrawer;
+
+    private CheckBoxPreference mNavbarLeftPref;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -59,6 +64,10 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         mFontSizePref.setOnPreferenceChangeListener(this);
         mPhoneDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER);
         mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
+
+        mNavbarLeftPref = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
+        mNavbarLeftPref.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.NAVBAR_LEFT, 0)) == 1);
 
         if (Utils.isTablet(getActivity())) {
             if (mPhoneDrawer != null) {
@@ -77,6 +86,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                 Preference naviBar = findPreference(KEY_NAVIGATION_BAR);
                 if (naviBar != null) {
                     getPreferenceScreen().removePreference(naviBar);
+                    getPreferenceScreen().removePreference(mNavbarLeftPref);
                 }
             } else {
                 Preference hardKeys = findPreference(KEY_HARDWARE_KEYS);
@@ -142,6 +152,22 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         } catch (RemoteException e) {
             Log.w(TAG, "Unable to save font size");
         }
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+
+        if (preference == mNavbarLeftPref){
+            value = mNavbarLeftPref.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.NAVBAR_LEFT,
+                    value ? 1 : 0);
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+
+        return true;
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

@@ -4320,6 +4320,9 @@
     <string name="navigation_bar_menu_editable">Editable</string>
     <string name="navigation_bar_menu_locked">Locked</string>
 
+    <string name="navigation_bar_left_title">Navigation bar on left</string>
+    <string name="navigation_bar_left_summary">Moves the navbar to the left during landscape (A reboot is recommended!)</string>
+
     <!-- Hardware keys -->
     <string name="hardware_keys_title">Hardware keys</string>
     <string name="hardware_keys_bindings_title">Key actions</string>
