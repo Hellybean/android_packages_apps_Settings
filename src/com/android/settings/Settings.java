@@ -441,7 +441,7 @@ public class Settings extends PreferenceActivity
                 }
             } else if (id == R.id.devil_kernel_manager) {
                 // Remove "Devil Kernel Manager" entry if "Devil Kernel Manager" is not available.
-                if (!hasDKM)) {
+                if (!hasDKM) {
                     target.remove(header);
                 }
             } else if (id == R.id.data_usage_settings) {
