@@ -376,6 +376,26 @@ public class Settings extends PreferenceActivity
     }
 
     private void updateHeaderList(List<Header> target) {
+
+		boolean hasDKC = false;
+		boolean hasDKM = false;
+		List<PackageInfo> pInfos = getPackageManager().getInstalledPackages(
+				PackageManager.GET_ACTIVITIES);
+		for (PackageInfo pInfo : pInfos) {
+			ActivityInfo[] aInfos = pInfo.activities;
+			if (aInfos != null) {
+				for (ActivityInfo activityInfo : aInfos) {
+					if (activityInfo.name
+							.equals("de.hilbring.android.devilkernelconfig.MainActivity")) {
+						hasDKC = true;
+					}
+					if (activityInfo.name
+							.equals("com.metalignus.devilappsgs.DevilAppSGSActivity")) {
+						hasDKM = true;
+					}
+				}
+			}
+		}
         int i = 0;
         while (i < target.size()) {
             Header header = target.get(i);
@@ -412,6 +432,16 @@ public class Settings extends PreferenceActivity
             } else if (id == R.id.bluetooth_settings) {
                 // Remove Bluetooth Settings if Bluetooth service is not available.
                 if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH)) {
+                    target.remove(header);
+                }
+            } else if (id == R.id.devil_kernel_config) {
+                // Remove "Devil Kernel Config" entry if "Devil Kernel Config" is not available.
+                if (!hasDKC) {
+                    target.remove(header);
+                }
+            } else if (id == R.id.devil_kernel_manager) {
+                // Remove "Devil Kernel Manager" entry if "Devil Kernel Manager" is not available.
+                if (!hasDKM)) {
                     target.remove(header);
                 }
             } else if (id == R.id.data_usage_settings) {
