@@ -2270,6 +2270,7 @@
     <string name="power_menu_title">Menú de apagado</string>
     <string name="power_menu_reboot_title">Reiniciar</string>
     <string name="power_menu_screenshot_title">Capturar pantalla</string>
+    <string name="power_menu_expanded_desktop">Escritorio expandido</string>
     <string name="power_menu_profiles_title">Perfiles</string>
     <string name="development_tools_title">Iniciar Herramientas</string>
     <string name="usb_mass_storage_title">Almacenamiento masivo</string>
