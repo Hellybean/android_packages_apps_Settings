@@ -63,6 +63,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_ELECTRON_BEAM_CATEGORY_ANIMATION = "category_animation_options";
     private static final String KEY_WAKEUP_CATEGORY = "category_wakeup_options";
     private static final String KEY_VOLUME_WAKE = "pref_volume_wake";
+    private static final String FORCE_DUAL_PANEL = "force_dualpanel";
 
     private static final String ROTATION_ANGLE_0 = "0";
     private static final String ROTATION_ANGLE_90 = "90";
@@ -80,6 +81,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mElectronBeamAnimationOff;
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
+    private CheckBoxPreference mDualPanel;
 
     private CheckBoxPreference mTabletui;
     private CheckBoxPreference mNavigationControls;
@@ -215,6 +217,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mNavigationControls = (CheckBoxPreference) findPreference(KEY_NAVIGATION_CONTROLS);
         mNavigationControls.setChecked(Settings.System.getInt(resolver,
                         Settings.System.NAVIGATION_CONTROLS, 1) == 1);
+        mDualPanel = (CheckBoxPreference) findPreference(FORCE_DUAL_PANEL;
+        if (mDualPanel != null) {
+            if (!getResources().getBoolean(com.android.internal.R.bool.config_enableDualPanel)) {
+                getPreferenceScreen().removePreference(mDualPanel);
+            } else {
+                mDualPanel.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.FORCE_DUAL_PANEL, 0) != 1);
+            }
+        }
+
     }
 
     private void updateDisplayRotationPreferenceDescription() {
@@ -433,7 +445,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.MODE_TABLET_UI,
                     value ? 1 : 0);
             return true;
-	}
+        } else if (preference == mDualPanel) {
+            Settings.System.putInt(getContentResolver(), Settings.System.FORCE_DUAL_PANEL,
+                    mDualPanel.isChecked() ? 1 : 0);
+            return true;
+        }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
