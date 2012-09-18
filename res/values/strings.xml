@@ -4930,8 +4930,6 @@
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
-    <string name="tablet_mode_title">Tablet mode</string>
-    <string name="tablet_flipped_title">Flip notifications and buttons</string>
     <string name="navigation_controls_title">Navigation controls</string>
 
     <string name="edge_swipe_title">Edge swipe navigation</string>
