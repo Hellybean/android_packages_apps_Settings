@@ -4332,6 +4332,16 @@
     <string name="navigation_bar_left_title">Navigation bar on left</string>
     <string name="navigation_bar_left_summary">Moves the navbar to the left during landscape (A reboot is recommended!)</string>
 
+    <!--- Kill app longpress back -->
+    <string name="kill_app_longpress_timeout">Longpress back kill timeout</string>
+    <string name="kill_app_longpress_timeout_3000">3000ms</string>
+    <string name="kill_app_longpress_timeout_2500">2500ms</string>
+    <string name="kill_app_longpress_timeout_2000">2000ms</string>
+    <string name="kill_app_longpress_timeout_1500">1500ms (default)</string>
+    <string name="kill_app_longpress_timeout_1000">1000ms</string>
+    <string name="kill_app_longpress_timeout_500">500ms</string>
+
+
     <!-- Hardware keys -->
     <string name="hardware_keys_title">Hardware keys</string>
     <string name="hardware_keys_bindings_title">Key actions</string>

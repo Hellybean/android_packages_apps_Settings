@@ -49,12 +49,14 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
+    private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
+
     private ListPreference mFontSizePref;
     private PreferenceScreen mPhoneDrawer;
     private PreferenceScreen mTabletDrawer;
     private ListPreference mNavButtonsHeight;
-
     private CheckBoxPreference mNavbarLeftPref;
+    private ListPreference mKillAppLongpressTimeout;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -79,6 +81,14 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         mNavbarLeftPref = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
         mNavbarLeftPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVBAR_LEFT, 0)) == 1);
+
+        mKillAppLongpressTimeout = (ListPreference) findPreference(KEY_KILL_APP_LONGPRESS_TIMEOUT);
+        mKillAppLongpressTimeout.setOnPreferenceChangeListener(this);
+
+        int statusKillAppLongpressTimeout = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                 Settings.System.KILL_APP_LONGPRESS_TIMEOUT, 1500);
+        mKillAppLongpressTimeout.setValue(String.valueOf(statusKillAppLongpressTimeout));
+        mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntry());
 
         if (Utils.isTablet(getActivity())) {
             if (mPhoneDrawer != null) {
@@ -195,7 +205,18 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                     Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
             mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
             return true;
+
+       } else if (preference == mKillAppLongpressTimeout) {
+            int statusKillAppLongpressTimeout = Integer.valueOf((String) objValue);
+            int index = mKillAppLongpressTimeout.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.KILL_APP_LONGPRESS_TIMEOUT, statusKillAppLongpressTimeout);
+            mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntries()[index]);
+            return true;
+
         }
+
+
         return false;
     }
 }
