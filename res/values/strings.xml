@@ -4430,9 +4430,10 @@
     <string name="status_bar_style_icon">Icon</string>
     <string name="status_bar_style_hidden">Hidden</string>
     <string name="status_bar_signal_text_show_text">Text</string>
-    <string name="status_bar_battery_status_percentage">Percentage</string>
-    <string name="status_bar_battery_status_circle">Circle</string>
-    <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
+    <string name="status_bar_signal_text_show_bars_text">Icon and Text</string>
+    <string name="status_bar_signal_text_hidden">Hidden</string>
+    <string name="status_bar_transparency_title">Statusbar Transparency</string>
+    <string name="status_bar_transparency_summary">Adjust statusbar transparency</string>
 
     <string name="lock_screen_title">Lock screen</string>
 
