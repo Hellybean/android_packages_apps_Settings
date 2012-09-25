@@ -47,6 +47,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarCmSignal;
     private ListPreference mStatusbarTransparency;
+    private CheckBoxPreference mStatusBarClock;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mCombinedBarAutoHide;
     private CheckBoxPreference mStatusBarNotifCount;
