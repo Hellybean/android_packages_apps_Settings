@@ -35,6 +35,11 @@
             android:entries="@array/entries_status_bar_am_pm"
             android:entryValues="@array/values_status_bar_am_pm" />
 
+        <PreferenceScreen
+            android:key="status_bar_clock_color"
+            android:title="@string/status_bar_clock_color_title">
+        </PreferenceScreen>
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -80,6 +85,33 @@
             android:title="@string/status_bar_notif_count_title"
             android:summary="@string/status_bar_notif_count_summary"
             android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/combined_bar_navigation_title">
+
+        <PreferenceScreen
+            android:key="combined_bar_navigation_color"
+            android:title="@string/combined_bar_navigation_color_title">
+        </PreferenceScreen>
+
+        <CheckBoxPreference
+            android:key="combined_bar_navigation_glow"
+            android:title="@string/combined_bar_navigation_glow_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference
+            android:key="combined_bar_navigation_quick_glow"
+            android:dependency="combined_bar_navigation_glow"
+            android:title="@string/combined_bar_navigation_quick_glow_title"
+            android:defaultValue="false" />
+
+        <PreferenceScreen
+            android:key="combined_bar_navigation_glow_color"
+            android:dependency="combined_bar_navigation_glow"
+            android:title="@string/combined_bar_navigation_glow_color_title">
+        </PreferenceScreen>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
