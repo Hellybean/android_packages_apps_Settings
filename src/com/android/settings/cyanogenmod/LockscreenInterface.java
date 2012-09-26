@@ -209,7 +209,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             return true;
         }
 
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
