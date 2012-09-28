@@ -43,7 +43,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String COMBINED_BAR_AUTO_HIDE = "combined_bar_auto_hide";
-    private static final String COMBINED_BAR_AUTO_HIDE_TIMEOUT = "combined_bar_auto_hide_timeout";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_TRANSPARENCY = "status_bar_transparency";
     private static final String PREF_ENABLE = "clock_style";
@@ -70,7 +69,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mCombinedBarNavigationQuickGlow;
     private Preference mCombinedBarNavigationGlowColor;
     private Preference mCombinedBarNavigationColor;
-    private SeekBarPreference mCombinedBarTimeout;
 
     private ContentResolver mContentResolver;
 
