@@ -4305,8 +4305,9 @@
 
     <!-- Combined Bar  -->
     <string name="combined_bar_title">Combined bar</string>
-    <string name="combined_bar_auto_hide_title">Auto hide</string>
-    <string name="combined_bar_auto_hide_summary">Allow combined bar to hide when showing a fullscreen app</string>
+    <string name="combined_bar_auto_hide_title">Fullscreen mode</string>
+    <string name="combined_bar_auto_hide_summary">Statusbar auto hides, visible through gesture</string>
+    <string name="combined_bar_auto_hide_timeout_title">Fullscreen statusbar timeout</string>
 
     <!-- Navigation Bar  -->
     <string name="navigation_bar_title">Navigation bar</string>
@@ -4939,6 +4940,7 @@
     <string name="power_menu_profiles_title">Profile switcher</string>
     <string name="power_menu_airplane_title">Airplane mode</string>
     <string name="power_menu_silent_title">Silent mode</string>
+    <string name="power_menu_nav_title">Navigation controls</string>
 
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">Launch tools</string>
@@ -4993,4 +4995,5 @@
     <string name="combined_bar_navigation_glow_color_title">Button glow color</string>
     <string name="combined_bar_navigation_quick_glow_title">Shorter button glow</string>
 
+    <string name="edge_swipe_blacklist_title">Edge swipe blacklist</string>
 </resources>
