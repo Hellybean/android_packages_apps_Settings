@@ -4995,4 +4995,8 @@
     <string name="combined_bar_navigation_quick_glow_title">Shorter button glow</string>
 
     <string name="edge_swipe_blacklist_title">Edge swipe blacklist</string>
+
+	
+    <string name="tablet_ui">Force Tablet UI</string>
+    <string name="tablet_ui_summary">This will switch to Tablet UI (requires reboot)</string>
 </resources>
