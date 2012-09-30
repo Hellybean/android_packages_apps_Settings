@@ -4971,8 +4971,4 @@
 	
     <string name="tablet_ui">Force Tablet UI</string>
     <string name="tablet_ui_summary">This will switch to Tablet UI (requires reboot)</string>
-
-    <string name="force_dualpanel_title">Enable dual panel</string>
-    <string name="force_dualpanel_summary">This will enable/disable dual panel view (requires reboot)</string>
-
 </resources>

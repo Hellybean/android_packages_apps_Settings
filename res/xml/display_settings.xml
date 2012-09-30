@@ -76,8 +76,6 @@
             android:title="@string/display_electron_beam_animation_off_title"
             android:defaultValue="true" />
 -->
-
-
         <PreferenceCategory
             android:key="category_wakeup_options"
             android:title="@string/display_category_wakeup_options_title"/>
@@ -98,11 +96,5 @@
             android:key="navigation_controls"
             android:title="@string/navigation_controls_title"
             android:persistent="false" />
-
-        <CheckBoxPreference
-            android:key="force_dualpanel"
-            android:title="@string/force_dualpanel_title"
-            android:summary="@string/force_dualpanel_summary"
-            android:defaultValue="false" />
 
 </PreferenceScreen>
