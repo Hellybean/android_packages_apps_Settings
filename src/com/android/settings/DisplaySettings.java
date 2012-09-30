@@ -72,6 +72,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
+    private static final String PREF_FORCE_DUAL_PANEL = "force_dualpanel";
     private static final String KEY_NAVIGATION_CONTROLS = "navigation_controls";
 
     private CheckBoxPreference mLockScreenRotation;
@@ -82,6 +83,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mBatteryPulse;
 
     private CheckBoxPreference mTabletui;
+    private CheckBoxPreference mDualpane;
     private CheckBoxPreference mNavigationControls;
 
     private CheckBoxPreference mAccelerometer;
@@ -211,6 +213,9 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mTabletui.setChecked(Settings.System.getInt(resolver,
                         Settings.System.MODE_TABLET_UI, 0) == 1);
 
+        mDualpane = (CheckBoxPreference) findPreference(PREF_FORCE_DUAL_PANEL);
+        mDualpane.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.FORCE_DUAL_PANEL, 0) == 1);
  
         mNavigationControls = (CheckBoxPreference) findPreference(KEY_NAVIGATION_CONTROLS);
         mNavigationControls.setChecked(Settings.System.getInt(resolver,
@@ -431,6 +436,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         } else if (preference == mTabletui) {
             boolean value = mTabletui.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.MODE_TABLET_UI,
+                    value ? 1 : 0);
+            return true;
+	 } else if (preference == mDualpane) {
+             boolean value = mDualpane.isChecked();
+             Settings.System.putInt(getContentResolver(), Settings.System.FORCE_DUAL_PANEL,
                     value ? 1 : 0);
             return true;
 	}
