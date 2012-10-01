@@ -270,7 +270,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             cp.show();
             return true;*/
 	}
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     ColorPickerDialog.OnColorChangedListener mColorListener =

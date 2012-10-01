@@ -34,20 +34,38 @@ import com.android.settings.Utils;
 
 public class EdgeSwipeNavigation extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String EDGE_SWIPE_BOTTOM = "edge_swipe_bottom";
-    private static final String EDGE_SWIPE_TOP = "edge_swipe_top";
-    private static final String EDGE_SWIPE_LEFT = "edge_swipe_left";
-    private static final String EDGE_SWIPE_RIGHT = "edge_swipe_right";
-    private static final String EDGE_SWIPE_MOVE = "edge_swipe_move";
-    private static final String EDGE_SWIPE_START = "edge_swipe_start";
-    private static final String EDGE_SWIPE_DISTANCE = "edge_swipe_distance";
+    private static final String GESTURE_ONE = "gesture_one";
+    private static final String GESTURE_TWO = "gesture_two";
+    private static final String GESTURE_THREE = "gesture_three";
+    private static final String GESTURE_FOUR = "gesture_four";
+    private static final String GESTURE_TYPE_ONE = "gesture_type_one";
+    private static final String GESTURE_TYPE_TWO = "gesture_type_two";
+    private static final String GESTURE_TYPE_THREE = "gesture_type_three";
+    private static final String GESTURE_TYPE_FOUR = "gesture_type_four";
+    private static final String GESTURE_SWIPE_CAPTURE = "gesture_swipe_capture";
+    private static final String ZONE_ONE_SIZE = "zone_one_grid";
+    private static final String ZONE_TWO_SIZE = "zone_two_grid";
+    private static final String ZONE_THREE_SIZE = "zone_three_grid";
+    private static final String ZONE_FOUR_SIZE = "zone_four_grid";
+    private static final String GESTURE_SWIPE_DISTANCE = "gesture_swipe_distance";
 
     private ListPreference mEdgeSwipeBottom;
     private ListPreference mEdgeSwipeTop;
     private ListPreference mEdgeSwipeRight;
     private ListPreference mEdgeSwipeLeft;
-    private CheckBoxPreference mEdgeSwipeMove;
-    private SeekBarPreference mEdgeSwipeStart;
+
+    private ListPreference mGestureTypeOne;
+    private ListPreference mGestureTypeTwo;
+    private ListPreference mGestureTypeThree;
+    private ListPreference mGestureTypeFour;
+
+    private CheckBoxPreference mCaptureSwipe;
+
+    private QuadNumberPickerPreference mZoneOneSize;
+    private QuadNumberPickerPreference mZoneTwoSize;
+    private QuadNumberPickerPreference mZoneThreeSize;
+    private QuadNumberPickerPreference mZoneFourSize;
+
     private SeekBarPreference mEdgeSwipeDistance;
 
     private ContentResolver mContentResolver;
@@ -67,43 +85,70 @@ public class EdgeSwipeNavigation extends SettingsPreferenceFragment implements
 
         mContentResolver = getActivity().getApplicationContext().getContentResolver();
 
-        mEdgeSwipeBottom = (ListPreference) findPreference(EDGE_SWIPE_BOTTOM);
-        mEdgeSwipeBottom.setOnPreferenceChangeListener(this);
-        int bottom = Settings.System.getInt(mContentResolver, EDGE_SWIPE_BOTTOM, 0);
-        mEdgeSwipeBottom.setValue(String.valueOf(bottom));
-        updateSummary(mEdgeSwipeBottom, bottom);
-
-        mEdgeSwipeTop = (ListPreference) findPreference(EDGE_SWIPE_TOP);
-        mEdgeSwipeTop.setOnPreferenceChangeListener(this);
-        int top = Settings.System.getInt(mContentResolver, EDGE_SWIPE_TOP, 0);
-        mEdgeSwipeTop.setValue(String.valueOf(top));
-        updateSummary(mEdgeSwipeTop, top);
-
-        mEdgeSwipeRight = (ListPreference) findPreference(EDGE_SWIPE_RIGHT);
-        mEdgeSwipeRight.setOnPreferenceChangeListener(this);
-        int right = Settings.System.getInt(mContentResolver, EDGE_SWIPE_RIGHT, 0);
-        mEdgeSwipeRight.setValue(String.valueOf(right));
-        updateSummary(mEdgeSwipeRight, right);
-
-        mEdgeSwipeLeft = (ListPreference) findPreference(EDGE_SWIPE_LEFT);
+        mEdgeSwipeLeft = (ListPreference) findPreference(GESTURE_ONE);
         mEdgeSwipeLeft.setOnPreferenceChangeListener(this);
-        int left = Settings.System.getInt(mContentResolver, EDGE_SWIPE_LEFT, 0);
+        int left = Settings.System.getInt(mContentResolver, GESTURE_ONE, 0);
         mEdgeSwipeLeft.setValue(String.valueOf(left));
         updateSummary(mEdgeSwipeLeft, left);
 
-        mEdgeSwipeMove = (CheckBoxPreference) findPreference(EDGE_SWIPE_MOVE);
-        mEdgeSwipeMove.setChecked(Settings.System.getInt(mContentResolver,
-                EDGE_SWIPE_MOVE, 0) == 1);
+        mEdgeSwipeTop = (ListPreference) findPreference(GESTURE_TWO);
+        mEdgeSwipeTop.setOnPreferenceChangeListener(this);
+        int top = Settings.System.getInt(mContentResolver, GESTURE_TWO, 0);
+        mEdgeSwipeTop.setValue(String.valueOf(top));
+        updateSummary(mEdgeSwipeTop, top);
 
-        mEdgeSwipeStart = (SeekBarPreference) prefSet.findPreference(EDGE_SWIPE_START);
-        mEdgeSwipeStart.setDefault(Settings.System.getInt(getActivity().getApplicationContext()
-                .getContentResolver(), Settings.System.EDGE_SWIPE_START, 35));
-        mEdgeSwipeStart.setOnPreferenceChangeListener(this);
-        mEdgeSwipeStart.setSummary(String.valueOf(mEdgeSwipeStart.getDefault()));
+        mEdgeSwipeRight = (ListPreference) findPreference(GESTURE_THREE);
+        mEdgeSwipeRight.setOnPreferenceChangeListener(this);
+        int right = Settings.System.getInt(mContentResolver, GESTURE_THREE, 0);
+        mEdgeSwipeRight.setValue(String.valueOf(right));
+        updateSummary(mEdgeSwipeRight, right);
 
-        mEdgeSwipeDistance = (SeekBarPreference) prefSet.findPreference(EDGE_SWIPE_DISTANCE);
+        mEdgeSwipeBottom = (ListPreference) findPreference(GESTURE_FOUR);
+        mEdgeSwipeBottom.setOnPreferenceChangeListener(this);
+        int bottom = Settings.System.getInt(mContentResolver, GESTURE_FOUR, 0);
+        mEdgeSwipeBottom.setValue(String.valueOf(bottom));
+        updateSummary(mEdgeSwipeBottom, bottom);
+
+        mGestureTypeOne = (ListPreference) findPreference(GESTURE_TYPE_ONE);
+        mGestureTypeOne.setOnPreferenceChangeListener(this);
+        int gestureType = Settings.System.getInt(mContentResolver, GESTURE_TYPE_ONE, 0);
+        mGestureTypeOne.setValue(String.valueOf(gestureType));
+        updateSummary(mGestureTypeOne, gestureType);
+
+        mGestureTypeTwo = (ListPreference) findPreference(GESTURE_TYPE_TWO);
+        mGestureTypeTwo.setOnPreferenceChangeListener(this);
+        gestureType = Settings.System.getInt(mContentResolver, GESTURE_TYPE_TWO, 0);
+        mGestureTypeTwo.setValue(String.valueOf(gestureType));
+        updateSummary(mGestureTypeTwo, gestureType);
+
+        mGestureTypeThree = (ListPreference) findPreference(GESTURE_TYPE_THREE);
+        mGestureTypeThree.setOnPreferenceChangeListener(this);
+        gestureType = Settings.System.getInt(mContentResolver, GESTURE_TYPE_THREE, 0);
+        mGestureTypeThree.setValue(String.valueOf(gestureType));
+        updateSummary(mGestureTypeThree, gestureType);
+
+        mGestureTypeFour = (ListPreference) findPreference(GESTURE_TYPE_FOUR);
+        mGestureTypeFour.setOnPreferenceChangeListener(this);
+        gestureType = Settings.System.getInt(mContentResolver, GESTURE_TYPE_FOUR, 0);
+        mGestureTypeFour.setValue(String.valueOf(gestureType));
+        updateSummary(mGestureTypeFour, gestureType);
+
+        mCaptureSwipe = (CheckBoxPreference) findPreference(GESTURE_SWIPE_CAPTURE);
+        mCaptureSwipe.setChecked(Settings.System.getInt(mContentResolver,
+                GESTURE_SWIPE_CAPTURE, 0) == 1);
+
+        mZoneOneSize = (QuadNumberPickerPreference) prefSet.findPreference(ZONE_ONE_SIZE);
+        mZoneOneSize.setOnPreferenceChangeListener(this);
+        mZoneTwoSize = (QuadNumberPickerPreference) prefSet.findPreference(ZONE_TWO_SIZE);
+        mZoneTwoSize.setOnPreferenceChangeListener(this);
+        mZoneThreeSize = (QuadNumberPickerPreference) prefSet.findPreference(ZONE_THREE_SIZE);
+        mZoneThreeSize.setOnPreferenceChangeListener(this);
+        mZoneFourSize = (QuadNumberPickerPreference) prefSet.findPreference(ZONE_FOUR_SIZE);
+        mZoneFourSize.setOnPreferenceChangeListener(this);
+
+        mEdgeSwipeDistance = (SeekBarPreference) prefSet.findPreference(GESTURE_SWIPE_DISTANCE);
         mEdgeSwipeDistance.setDefault(Settings.System.getInt(getActivity().getApplicationContext()
-                .getContentResolver(), Settings.System.EDGE_SWIPE_DISTANCE, 40));
+                .getContentResolver(), Settings.System.GESTURE_SWIPE_DISTANCE, 0));
         mEdgeSwipeDistance.setOnPreferenceChangeListener(this);
         mEdgeSwipeDistance.setSummary(String.valueOf(mEdgeSwipeDistance.getDefault()));
     }
@@ -125,27 +170,51 @@ public class EdgeSwipeNavigation extends SettingsPreferenceFragment implements
         final String key = preference.getKey();
         if (preference == mEdgeSwipeBottom) {
             int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(mContentResolver, EDGE_SWIPE_BOTTOM, value);
+            Settings.System.putInt(mContentResolver, GESTURE_FOUR, value);
             updateSummary(mEdgeSwipeBottom, value);
         } else if (preference == mEdgeSwipeTop) {
             int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(mContentResolver, EDGE_SWIPE_TOP, value);
+            Settings.System.putInt(mContentResolver, GESTURE_TWO, value);
             updateSummary(mEdgeSwipeTop, value);
         } else if (preference == mEdgeSwipeRight) {
             int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(mContentResolver, EDGE_SWIPE_RIGHT, value);
+            Settings.System.putInt(mContentResolver, GESTURE_THREE, value);
             updateSummary(mEdgeSwipeRight, value);
         } else if (preference == mEdgeSwipeLeft) {
             int value = Integer.parseInt((String) objValue);
-            Settings.System.putInt(mContentResolver, EDGE_SWIPE_LEFT, value);
+            Settings.System.putInt(mContentResolver, GESTURE_ONE, value);
             updateSummary(mEdgeSwipeLeft, value);
-        } else if (preference == mEdgeSwipeStart) {
-            int value = (Integer) objValue;
-            Settings.System.putInt(mContentResolver, EDGE_SWIPE_START, value);
-            mEdgeSwipeStart.setSummary(String.valueOf(value));
+        } else if (preference == mGestureTypeOne) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(mContentResolver, GESTURE_TYPE_ONE, value);
+            updateSummary(mGestureTypeOne, value);
+        } else if (preference == mGestureTypeTwo) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(mContentResolver, GESTURE_TYPE_TWO, value);
+            updateSummary(mGestureTypeTwo, value);
+        } else if (preference == mGestureTypeThree) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(mContentResolver, GESTURE_TYPE_THREE, value);
+            updateSummary(mGestureTypeThree, value);
+        } else if (preference == mGestureTypeFour) {
+            int value = Integer.parseInt((String) objValue);
+            Settings.System.putInt(mContentResolver, GESTURE_TYPE_FOUR, value);
+            updateSummary(mGestureTypeFour, value);
+        } else if (preference == mZoneOneSize) {
+            String value = (String) objValue;
+            Settings.System.putString(mContentResolver, Settings.System.TOUCH_ZONE_ONE, value);
+        } else if (preference == mZoneTwoSize) {
+            String value = (String) objValue;
+            Settings.System.putString(mContentResolver, Settings.System.TOUCH_ZONE_TWO, value);
+        } else if (preference == mZoneThreeSize) {
+            String value = (String) objValue;
+            Settings.System.putString(mContentResolver, Settings.System.TOUCH_ZONE_THREE, value);
+        } else if (preference == mZoneFourSize) {
+            String value = (String) objValue;
+            Settings.System.putString(mContentResolver, Settings.System.TOUCH_ZONE_FOUR, value);
         } else if (preference == mEdgeSwipeDistance) {
             int value = (Integer) objValue;
-            Settings.System.putInt(mContentResolver, EDGE_SWIPE_DISTANCE, value);
+            Settings.System.putInt(mContentResolver, GESTURE_SWIPE_DISTANCE, value);
             mEdgeSwipeDistance.setSummary(String.valueOf(value));
         }
         return true;
@@ -153,9 +222,9 @@ public class EdgeSwipeNavigation extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mEdgeSwipeMove) {
-            Settings.System.putInt(getContentResolver(), Settings.System.EDGE_SWIPE_MOVE,
-                    mEdgeSwipeMove.isChecked() ? 1 : 0);
+        if (preference == mCaptureSwipe) {
+            Settings.System.putInt(getContentResolver(), Settings.System.GESTURE_SWIPE_CAPTURE,
+                    mCaptureSwipe.isChecked() ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
