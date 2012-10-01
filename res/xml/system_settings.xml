@@ -90,6 +90,12 @@
         android:title="@string/navigation_bar_left_title"
         android:summary="@string/navigation_bar_left_summary"
         android:defaultValue="false" />
+
+    <CheckBoxPreference
+        android:key="killall_button"
+        android:title="@string/killall_button_title"
+        android:summary="@string/killall_button_summary"
+        android:defaultValue="false" />
     
     <PreferenceScreen
         android:key="hardware_keys"

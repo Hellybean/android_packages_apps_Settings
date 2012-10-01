@@ -4332,6 +4332,9 @@
     <string name="navigation_bar_left_title">Navigation bar on left</string>
     <string name="navigation_bar_left_summary">Moves the navbar to the left during landscape (A reboot is recommended!)</string>
 
+    <string name="killall_button_title">Display killall_button</string>
+    <string name="killall_button_summary">This displays killall_button</string>
+
     <!--- Kill app longpress back -->
     <string name="kill_app_longpress_timeout">Longpress back kill timeout</string>
     <string name="kill_app_longpress_timeout_3000">3000ms</string>
