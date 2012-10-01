@@ -49,7 +49,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
-    private static final String KEY_KILLALL_BUTTON = "killall_button";
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
 
     private ListPreference mFontSizePref;
@@ -57,7 +56,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mTabletDrawer;
     private ListPreference mNavButtonsHeight;
     private CheckBoxPreference mNavbarLeftPref;
-    private CheckBoxPreference mKillAllButtonPref;
     private ListPreference mKillAppLongpressTimeout;
 
     private final Configuration mCurConfig = new Configuration();
@@ -83,10 +81,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         mNavbarLeftPref = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
         mNavbarLeftPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.NAVBAR_LEFT, 0)) == 1);
-
-        mKillAllButtonPref = (CheckBoxPreference) findPreference(KEY_KILLALL_BUTTON);
-        mKillAllButtonPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.KILLALL_BUTTON, 0)) == 1);
 
         mKillAppLongpressTimeout = (ListPreference) findPreference(KEY_KILL_APP_LONGPRESS_TIMEOUT);
         mKillAppLongpressTimeout.setOnPreferenceChangeListener(this);
@@ -190,15 +184,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.NAVBAR_LEFT,
                     value ? 1 : 0);
-        } else if (preference == mKillAllButtonPref){
-            value = mKillAllButtonPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.KILLALL_BUTTON,
-                    value ? 1 : 0);
-        }
-
-
-else {
+        } else {
             return super.onPreferenceTreeClick(preferenceScreen, preference);
         }
 
