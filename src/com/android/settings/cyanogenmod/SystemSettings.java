@@ -48,6 +48,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
+    private static final String NAV_BAR_TRANSPARENCY = "nav_bar_transparency";
 
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
 
@@ -56,6 +57,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mTabletDrawer;
     private ListPreference mNavButtonsHeight;
     private CheckBoxPreference mNavbarLeftPref;
+    private ListPreference mNavigationBarTransparency;
     private ListPreference mKillAppLongpressTimeout;
 
     private final Configuration mCurConfig = new Configuration();
@@ -72,6 +74,8 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
         mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
         mNavButtonsHeight.setOnPreferenceChangeListener(this);
+        mNavigationBarTransparency = (ListPreference) findPreference(NAV_BAR_TRANSPARENCY);
+        mNavigationBarTransparency.setOnPreferenceChangeListener(this);
 
         int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                  Settings.System.NAV_BUTTONS_HEIGHT, 48);
@@ -89,6 +93,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                  Settings.System.KILL_APP_LONGPRESS_TIMEOUT, 1500);
         mKillAppLongpressTimeout.setValue(String.valueOf(statusKillAppLongpressTimeout));
         mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntry());
+
+        int navBarTransparency = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.NAV_BAR_TRANSPARENCY, 100);
+        mNavigationBarTransparency.setValue(String.valueOf(navBarTransparency));
+        mNavigationBarTransparency.setOnPreferenceChangeListener(this);
 
         if (Utils.isTablet(getActivity())) {
             if (mPhoneDrawer != null) {
@@ -213,9 +222,12 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                     Settings.System.KILL_APP_LONGPRESS_TIMEOUT, statusKillAppLongpressTimeout);
             mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntries()[index]);
             return true;
-
+       } else if (preference == mNavigationBarTransparency) {
+            int navBarTransparency = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAV_BAR_TRANSPARENCY, navBarTransparency);
+            return true;
         }
-
 
         return false;
     }

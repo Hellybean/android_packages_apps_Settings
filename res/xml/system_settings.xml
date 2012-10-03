@@ -83,6 +83,13 @@
             android:defaultValue="48"
             android:persistent="false" />
 
+        <ListPreference
+            android:key="nav_bar_transparency"
+            android:title="@string/navigation_bar_transparency_title"
+            android:summary="@string/navigation_bar_transparency_summary"
+            android:entries="@array/entries_transparency"
+            android:entryValues="@array/values_transparency"/>
+
     </PreferenceCategory>
 
     <CheckBoxPreference
