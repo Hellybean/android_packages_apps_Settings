@@ -1812,6 +1812,9 @@
 
         <!-- CyanogenMod activities End -->
 
+        <!-- Prop Modder-->
+        <activity android:name=".util.ShowBuildProp" />
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
