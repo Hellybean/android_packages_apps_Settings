@@ -71,6 +71,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM = ", ";
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
+    private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
     private static final String KEY_NAVIGATION_CONTROLS = "navigation_controls";
 
     private CheckBoxPreference mLockScreenRotation;
@@ -79,7 +80,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private CheckBoxPreference mElectronBeamAnimationOff;
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
+
+    private CheckBoxPreference mTabletui;
     private CheckBoxPreference mNavigationControls;
+
     private CheckBoxPreference mAccelerometer;
     private ListPreference mFontSizePref;
 
@@ -203,6 +207,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
         }
 
+        mTabletui = (CheckBoxPreference) findPreference(PREF_MODE_TABLET_UI);
+        mTabletui.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.MODE_TABLET_UI, 0) == 1);
+
+ 
         mNavigationControls = (CheckBoxPreference) findPreference(KEY_NAVIGATION_CONTROLS);
         mNavigationControls.setChecked(Settings.System.getInt(resolver,
                         Settings.System.NAVIGATION_CONTROLS, 1) == 1);
@@ -419,12 +428,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_CONTROLS,
                     value ? 1 : 0);
             return true;
+        } else if (preference == mTabletui) {
+            boolean value = mTabletui.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.MODE_TABLET_UI,
+                    value ? 1 : 0);
+            return true;
 	}
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
         final String key = preference.getKey();
         if (KEY_SCREEN_TIMEOUT.equals(key)) {
             int value = Integer.parseInt((String) objValue);

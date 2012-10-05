@@ -1559,18 +1559,5 @@
         <item>500</item>
     </string-array>
 
-	
-    <string-array name="tablet_ui_entries">
-        <item>Default ui</item>
-        <item>Phablet ui</item>
-        <item>Tablet ui</item>
-    </string-array>
-
-    <string-array name="tablet_ui_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
     <!-- **** CYANOGENMOD EDITS END **** -->
 </resources>
