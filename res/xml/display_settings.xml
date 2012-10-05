@@ -86,11 +86,6 @@
             android:summary="@string/pref_volume_wake_summary"
             android:defaultValue="false" />
 
-        <CheckBoxPreference
-            android:key="mode_tabletui"
-            android:title="@string/tablet_ui"
-            android:summary="@string/tablet_ui_summary"
-            android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="navigation_controls"

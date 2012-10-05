@@ -96,4 +96,11 @@
         android:fragment="com.android.settings.cyanogenmod.HardwareKeys"
         android:title="@string/hardware_keys_title" />
 
+        <ListPreference
+	    android:entries="@array/tablet_ui_entries"
+	    android:entryValues="@array/tablet_ui_values"
+            android:key="mode_tabletui"
+            android:title="@string/tablet_ui"
+            android:summary="@string/tablet_ui_summary" />
+
 </PreferenceScreen>

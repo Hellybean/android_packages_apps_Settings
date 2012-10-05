@@ -50,6 +50,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
+    private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
 
     private ListPreference mFontSizePref;
     private PreferenceScreen mPhoneDrawer;
@@ -57,6 +58,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private ListPreference mNavButtonsHeight;
     private CheckBoxPreference mNavbarLeftPref;
     private ListPreference mKillAppLongpressTimeout;
+    private ListPreference mTabletui;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -99,6 +101,13 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                 getPreferenceScreen().removePreference(mTabletDrawer);
             }
         }
+
+        mTabletui = (ListPreference) findPreference(PREF_MODE_TABLET_UI);
+	mTabletui.setOnPreferenceChangeListener(this);
+        int statusTabletui = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                 Settings.System.MODE_TABLET_UI, 0);
+        mTabletui.setValue(String.valueOf(statusTabletui));
+	mTabletui.setSummary(mTabletui.getEntry());
 
         IWindowManager windowManager = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
@@ -205,7 +214,13 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                     Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
             mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
             return true;
-
+	} else if (preference == mTabletui) {
+           int statusTabletui = Integer.valueOf((String) objValue);
+           int index = mTabletui.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.MODE_TABLET_UI, statusTabletui);
+	   mTabletui.setSummary(mTabletui.getEntries()[index]);
+           return true;
        } else if (preference == mKillAppLongpressTimeout) {
             int statusKillAppLongpressTimeout = Integer.valueOf((String) objValue);
             int index = mKillAppLongpressTimeout.findIndexOfValue((String) objValue);
@@ -215,7 +230,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
             return true;
 
         }
-
 
         return false;
     }
