@@ -4332,6 +4332,14 @@
     <string name="navigation_bar_left_title">Navigation bar on left</string>
     <string name="navigation_bar_left_summary">Moves the navbar to the left during landscape (A reboot is recommended!)</string>
 
+
+    <string name="combined_bar_navigation_title">Navigation settings</string>
+    <string name="navigation_controls_title">Show Navigation bar</string>
+    <string name="combined_bar_navigation_color_title">Button color</string>
+    <string name="combined_bar_navigation_glow_title">Button glow effect</string>
+    <string name="combined_bar_navigation_glow_color_title">Button glow color</string>
+    <string name="combined_bar_navigation_quick_glow_title">Shorter button glow</string>
+
     <!--- Kill app longpress back -->
     <string name="kill_app_longpress_timeout">Longpress back kill timeout</string>
     <string name="kill_app_longpress_timeout_3000">3000ms</string>
@@ -4941,8 +4949,6 @@
 
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
-    <string name="navigation_controls_title">Navigation controls</string>
-
     <string name="edge_swipe_title">Edge swipe navigation</string>
     <string name="edge_swipe_right_title">Right edge swipe</string>
     <string name="edge_swipe_left_title">Left edge swipe</string>
@@ -4959,6 +4965,7 @@
     <string name="edge_swipe_menu">Menu</string>
     <string name="edge_swipe_start">Edge distance</string>
     <string name="edge_swipe_distance">Swipe distance</string>
+    <string name="edge_swipe_blacklist_title">Edge swipe blacklist</string>
 
     <string name="status_bar_clock_color_title">Color</string>
     <string name="dialog_indicator_color_title">Select color</string>

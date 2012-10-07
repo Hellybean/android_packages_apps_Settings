@@ -72,7 +72,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
     private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
-    private static final String KEY_NAVIGATION_CONTROLS = "navigation_controls";
 
     private CheckBoxPreference mLockScreenRotation;
     private CheckBoxPreference mVolumeWake;
@@ -82,7 +81,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mBatteryPulse;
 
     private CheckBoxPreference mTabletui;
-    private CheckBoxPreference mNavigationControls;
 
     private CheckBoxPreference mAccelerometer;
     private ListPreference mFontSizePref;
@@ -211,10 +209,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mTabletui.setChecked(Settings.System.getInt(resolver,
                         Settings.System.MODE_TABLET_UI, 0) == 1);
 
- 
-        mNavigationControls = (CheckBoxPreference) findPreference(KEY_NAVIGATION_CONTROLS);
-        mNavigationControls.setChecked(Settings.System.getInt(resolver,
-                        Settings.System.NAVIGATION_CONTROLS, 1) == 1);
     }
 
     private void updateDisplayRotationPreferenceDescription() {
@@ -422,11 +416,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_ROTATION,
                     mLockScreenRotation.isChecked() ? 1 : 0);
             updateDisplayRotationPreferenceDescription();
-            return true;
-        } else if (preference == mNavigationControls) {
-            boolean value = mNavigationControls.isChecked();
-            Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_CONTROLS,
-                    value ? 1 : 0);
             return true;
         } else if (preference == mTabletui) {
             boolean value = mTabletui.isChecked();

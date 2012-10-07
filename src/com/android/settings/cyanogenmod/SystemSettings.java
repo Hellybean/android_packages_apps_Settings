@@ -44,18 +44,14 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
     private static final String KEY_NOTIFICATION_DRAWER_TABLET = "notification_drawer_tablet";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAV_BUTTONS_EDIT = "nav_buttons_edit";
-    private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
+    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
-    private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
 
     private ListPreference mFontSizePref;
     private PreferenceScreen mPhoneDrawer;
     private PreferenceScreen mTabletDrawer;
-    private ListPreference mNavButtonsHeight;
-    private CheckBoxPreference mNavbarLeftPref;
     private ListPreference mKillAppLongpressTimeout;
 
     private final Configuration mCurConfig = new Configuration();
@@ -68,19 +64,9 @@ public class SystemSettings extends SettingsPreferenceFragment implements
 
         mFontSizePref = (ListPreference) findPreference(KEY_FONT_SIZE);
         mFontSizePref.setOnPreferenceChangeListener(this);
+
         mPhoneDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER);
         mTabletDrawer = (PreferenceScreen) findPreference(KEY_NOTIFICATION_DRAWER_TABLET);
-        mNavButtonsHeight = (ListPreference) findPreference(KEY_NAV_BUTTONS_HEIGHT);
-        mNavButtonsHeight.setOnPreferenceChangeListener(this);
-
-        int statusNavButtonsHeight = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                 Settings.System.NAV_BUTTONS_HEIGHT, 48);
-        mNavButtonsHeight.setValue(String.valueOf(statusNavButtonsHeight));
-        mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntry());
-
-        mNavbarLeftPref = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
-        mNavbarLeftPref.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.NAVBAR_LEFT, 0)) == 1);
 
         mKillAppLongpressTimeout = (ListPreference) findPreference(KEY_KILL_APP_LONGPRESS_TIMEOUT);
         mKillAppLongpressTimeout.setOnPreferenceChangeListener(this);
@@ -105,6 +91,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         try {
             if (!windowManager.hasNavigationBar()) {
                 Preference naviBar = findPreference(KEY_NAVIGATION_BAR);
+                Preference mNavbarLeftPref = findPreference(KEY_NAVIGATION_BAR_LEFT);
                 if (naviBar != null) {
                     getPreferenceScreen().removePreference(naviBar);
                     getPreferenceScreen().removePreference(mNavbarLeftPref);
@@ -117,6 +104,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
             }
         } catch (RemoteException e) {
         }
+
     }
 
     int floatToIndex(float val) {
@@ -175,22 +163,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         }
     }
 
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        boolean value;
-
-        if (preference == mNavbarLeftPref){
-            value = mNavbarLeftPref.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.NAVBAR_LEFT,
-                    value ? 1 : 0);
-        } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
-
-        return true;
-    }
-
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mFontSizePref) {
             final String key = preference.getKey();
@@ -198,14 +170,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                 writeFontSizePreference(objValue);
             }
             return true;
-        } else if (preference == mNavButtonsHeight) {
-            int statusNavButtonsHeight = Integer.valueOf((String) objValue);
-            int index = mNavButtonsHeight.findIndexOfValue((String) objValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.NAV_BUTTONS_HEIGHT, statusNavButtonsHeight);
-            mNavButtonsHeight.setSummary(mNavButtonsHeight.getEntries()[index]);
-            return true;
-
        } else if (preference == mKillAppLongpressTimeout) {
             int statusKillAppLongpressTimeout = Integer.valueOf((String) objValue);
             int index = mKillAppLongpressTimeout.findIndexOfValue((String) objValue);
@@ -213,9 +177,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                     Settings.System.KILL_APP_LONGPRESS_TIMEOUT, statusKillAppLongpressTimeout);
             mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntries()[index]);
             return true;
-
         }
-
 
         return false;
     }
