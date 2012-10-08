@@ -47,12 +47,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_TRANSPARENCY = "status_bar_transparency";
     private static final String PREF_ENABLE = "clock_style";
     private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
-    private static final String COMBINED_BAR_NAVIGATION_COLOR = "combined_bar_navigation_color";
-    private static final String COMBINED_BAR_NAVIGATION_GLOW = "combined_bar_navigation_glow";
-    private static final String COMBINED_BAR_NAVIGATION_GLOW_COLOR =
-            "combined_bar_navigation_glow_color";
-    private static final String COMBINED_BAR_NAVIGATION_QUICK_GLOW =
-            "combined_bar_navigation_quick_glow";
 
     private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
@@ -65,10 +59,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private PreferenceCategory mPrefCategoryGeneral;
 
     private Preference mStatusBarClockColor;
-    private CheckBoxPreference mCombinedBarNavigationGlow;
-    private CheckBoxPreference mCombinedBarNavigationQuickGlow;
-    private Preference mCombinedBarNavigationGlowColor;
-    private Preference mCombinedBarNavigationColor;
 
     private ContentResolver mContentResolver;
 
@@ -97,14 +87,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusbarTransparency = (ListPreference) prefSet.findPreference(STATUS_BAR_TRANSPARENCY);
 
 	mStatusBarClockColor = (Preference) prefSet.findPreference(STATUS_BAR_CLOCK_COLOR);
-        mCombinedBarNavigationGlow =
-                (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_NAVIGATION_GLOW);
-        mCombinedBarNavigationQuickGlow =
-                (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_NAVIGATION_QUICK_GLOW);
-        mCombinedBarNavigationGlowColor =
-                (Preference) prefSet.findPreference(COMBINED_BAR_NAVIGATION_GLOW_COLOR);
-        mCombinedBarNavigationColor =
-                (Preference) prefSet.findPreference(COMBINED_BAR_NAVIGATION_COLOR);
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
 
@@ -156,10 +138,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_NOTIF_COUNT, 0) == 1));
 
-        mCombinedBarNavigationGlow.setChecked((Settings.System.getInt(mContentResolver,
-                Settings.System.COMBINED_BAR_NAVIGATION_GLOW, 1) == 1));
-        mCombinedBarNavigationQuickGlow.setChecked((Settings.System.getInt(mContentResolver,
-                Settings.System.COMBINED_BAR_NAVIGATION_GLOW_TIME, 0) == 1));
         mPrefCategoryGeneral = (PreferenceCategory) findPreference(STATUS_BAR_CATEGORY_GENERAL);
 
         if (Utils.isTablet(getActivity())) {
@@ -233,35 +211,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             cp.setDefaultColor(0xFF33B5E5);
             cp.show();
             return true;
-        } else if (preference == mCombinedBarNavigationGlow) {
-            value = mCombinedBarNavigationGlow.isChecked();
-            Settings.System.putInt(mContentResolver,
-                    Settings.System.COMBINED_BAR_NAVIGATION_GLOW, value ? 1 : 0);
-            return true;
-        } else if (preference == mCombinedBarNavigationQuickGlow) {
-            value = mCombinedBarNavigationQuickGlow.isChecked();
-            Settings.System.putInt(mContentResolver,
-                    Settings.System.COMBINED_BAR_NAVIGATION_GLOW_TIME, value ? 1 : 0);
-            return true;
-        } else if (preference == mCombinedBarNavigationGlowColor) {
-            ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
-                    mGlowColorListener, Settings.System.getInt(getActivity().getApplicationContext()
-                    .getContentResolver(), Settings.System.COMBINED_BAR_NAVIGATION_GLOW_COLOR,
-                    getActivity().getApplicationContext().getResources().getColor(
-                    com.android.internal.R.color.holo_blue_light)));
-            cp.setDefaultColor(0x00000000);
-            cp.show();
-            return true;
-        } else if (preference == mCombinedBarNavigationColor) {
-            ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
-                    mButtonColorListener, Settings.System.getInt(getActivity().getApplicationContext()
-                    .getContentResolver(), Settings.System.COMBINED_BAR_NAVIGATION_COLOR,
-                    getActivity().getApplicationContext().getResources().getColor(
-                    com.android.internal.R.color.transparent)));
-            cp.setDefaultColor(0x00000000);
-            cp.show();
-            return true;
-        }
+	}
         return false;
     }
 
@@ -270,26 +220,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             public void colorChanged(int color) {
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.STATUS_BAR_CLOCK_COLOR, color);
-            }
-            public void colorUpdate(int color) {
-            }
-    };
-
-    ColorPickerDialog.OnColorChangedListener mButtonColorListener =
-        new ColorPickerDialog.OnColorChangedListener() {
-            public void colorChanged(int color) {
-                Settings.System.putInt(getContentResolver(),
-                        Settings.System.COMBINED_BAR_NAVIGATION_COLOR, color);
-            }
-            public void colorUpdate(int color) {
-            }
-    };
-
-    ColorPickerDialog.OnColorChangedListener mGlowColorListener =
-        new ColorPickerDialog.OnColorChangedListener() {
-            public void colorChanged(int color) {
-                Settings.System.putInt(getContentResolver(),
-                        Settings.System.COMBINED_BAR_NAVIGATION_GLOW_COLOR, color);
             }
             public void colorUpdate(int color) {
             }

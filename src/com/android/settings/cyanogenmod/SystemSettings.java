@@ -44,7 +44,13 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String KEY_NOTIFICATION_DRAWER = "notification_drawer";
     private static final String KEY_NOTIFICATION_DRAWER_TABLET = "notification_drawer_tablet";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
+    private static final String KEY_NAV_BUTTONS_EDIT = "nav_buttons_edit";
+    private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private static final String COMBINED_BAR_NAVIGATION_COLOR = "combined_bar_navigation_color";
+    private static final String COMBINED_BAR_NAVIGATION_GLOW = "combined_bar_navigation_glow";
+    private static final String COMBINED_BAR_NAVIGATION_GLOW_COLOR = "combined_bar_navigation_glow_color";
+    private static final String COMBINED_BAR_NAVIGATION_QUICK_GLOW = "combined_bar_navigation_quick_glow";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";

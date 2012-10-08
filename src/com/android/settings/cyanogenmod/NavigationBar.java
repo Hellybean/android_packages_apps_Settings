@@ -39,7 +39,6 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
 
     private static final String KEY_NAVIGATION_CONTROLS = "navigation_controls";
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
-    private static final String KEY_NAV_BUTTONS_EDIT = "nav_buttons_edit";
     private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
@@ -66,7 +65,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.status_bar);
+        addPreferencesFromResource(R.xml.navigation_bar);
 
         PreferenceScreen prefSet = getPreferenceScreen();
         mContentResolver = getActivity().getApplicationContext().getContentResolver();
