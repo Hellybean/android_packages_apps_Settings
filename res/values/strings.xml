@@ -4441,6 +4441,9 @@
     <string name="status_bar_transparency_title">Statusbar Transparency</string>
     <string name="status_bar_transparency_summary">Adjust statusbar transparency</string>
 
+    <string name="notification_panel_transparency_title">Notification Panel Transparency</string>
+    <string name="notification_panel_transparency_summary">Adjust Notification Panel transparency</string>
+
     <string name="lock_screen_title">Lock screen</string>
 
     <!-- Lock Screen Shortcuts -->

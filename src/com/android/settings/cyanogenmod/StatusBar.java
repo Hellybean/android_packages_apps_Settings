@@ -45,6 +45,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String COMBINED_BAR_AUTO_HIDE = "combined_bar_auto_hide";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_TRANSPARENCY = "status_bar_transparency";
+    private static final String NOTIFICATION_PANEL_TRANSPARENCY = "notification_panel_transparency";
     private static final String PREF_ENABLE = "clock_style";
 
     private static final String STATUS_BAR_COLOR = "status_bar_color";
@@ -56,6 +57,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarCmSignal;
     private ListPreference mStatusbarTransparency;
+    private ListPreference mNotificationpanelTransparency;
     private ListPreference mStatusBarClock;
     private CheckBoxPreference mStatusBarBrightnessControl;
     private CheckBoxPreference mCombinedBarAutoHide;
@@ -91,6 +93,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mCombinedBarAutoHide = (CheckBoxPreference) prefSet.findPreference(COMBINED_BAR_AUTO_HIDE);
         mStatusBarCmSignal = (ListPreference) prefSet.findPreference(STATUS_BAR_SIGNAL);
         mStatusbarTransparency = (ListPreference) prefSet.findPreference(STATUS_BAR_TRANSPARENCY);
+        mNotificationpanelTransparency = (ListPreference) prefSet.findPreference(NOTIFICATION_PANEL_TRANSPARENCY);
 
         mStatusBarColor = (Preference) prefSet.findPreference(STATUS_BAR_COLOR);
         mNotificationPanelColor = (Preference) prefSet.findPreference(NOTIFICATION_PANEL_COLOR);
@@ -134,6 +137,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusbarTransparency.setValue(String.valueOf(statusBarTransparency));
         mStatusbarTransparency.setOnPreferenceChangeListener(this);
 
+        int notificationPanelTransparency = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.NOTIFICATION_PANEL_TRANSPARENCY, 100);
+        mNotificationpanelTransparency.setValue(String.valueOf(notificationPanelTransparency));
+        mNotificationpanelTransparency.setOnPreferenceChangeListener(this);
+
         int signalStyle = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SIGNAL_TEXT, 0);
         mStatusBarCmSignal.setValue(String.valueOf(signalStyle));
@@ -176,6 +184,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int statusBarTransparency = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_TRANSPARENCY, statusBarTransparency);
+            return true;
+        } else if (preference == mNotificationpanelTransparency) {
+            int notificationPanelTransparency = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NOTIFICATION_PANEL_TRANSPARENCY, notificationPanelTransparency);
             return true;
     	} else if (preference == mStatusBarCmSignal) {
             int signalStyle = Integer.valueOf((String) newValue);
