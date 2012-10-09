@@ -4981,4 +4981,7 @@
     <string name="tablet_ui">Force Tablet UI</string>
     <string name="tablet_ui_summary">This will switch to Tablet UI (requires reboot)</string>
 
+    <!-- Combined Bar #CM -->
+    <string name="status_bar_color_title">Status bar color</string>
+    <string name="notification_panel_color_title">Notification panel color</string>
 </resources>
