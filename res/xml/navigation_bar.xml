@@ -33,6 +33,11 @@
             android:persistent="false" />
 
         <PreferenceScreen
+            android:key="navigation_bar_color"
+            android:title="@string/navigation_bar_color_title">
+        </PreferenceScreen>
+
+        <PreferenceScreen
             android:key="combined_bar_navigation_color"
             android:title="@string/combined_bar_navigation_color_title">
         </PreferenceScreen>

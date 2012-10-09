@@ -4335,6 +4335,7 @@
 
     <string name="combined_bar_navigation_title">Navigation settings</string>
     <string name="navigation_controls_title">Show Navigation bar</string>
+    <string name="navigation_bar_color_title">Navigation bar background color</string>
     <string name="combined_bar_navigation_color_title">Button color</string>
     <string name="combined_bar_navigation_glow_title">Button glow effect</string>
     <string name="combined_bar_navigation_glow_color_title">Button glow color</string>
@@ -4984,4 +4985,5 @@
     <!-- Combined Bar #CM -->
     <string name="status_bar_color_title">Status bar color</string>
     <string name="notification_panel_color_title">Notification panel color</string>
+
 </resources>

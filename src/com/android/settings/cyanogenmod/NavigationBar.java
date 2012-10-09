@@ -42,6 +42,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
     private static final String KEY_NAV_BUTTONS_HEIGHT = "nav_buttons_height";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left"; // temp. To be moved in to the navbar settings.
 
+    private static final String NAVIGATION_BAR_COLOR = "navigation_bar_color";
     private static final String COMBINED_BAR_NAVIGATION_COLOR = "combined_bar_navigation_color";
     private static final String COMBINED_BAR_NAVIGATION_GLOW = "combined_bar_navigation_glow";
     private static final String COMBINED_BAR_NAVIGATION_GLOW_COLOR =
@@ -58,6 +59,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
     private CheckBoxPreference mCombinedBarNavigationQuickGlow;
     private Preference mCombinedBarNavigationGlowColor;
     private Preference mCombinedBarNavigationColor;
+    private Preference mNavigationBarColor;
 
     private ContentResolver mContentResolver;
 
@@ -95,6 +97,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
                 (Preference) prefSet.findPreference(COMBINED_BAR_NAVIGATION_GLOW_COLOR);
         mCombinedBarNavigationColor =
                 (Preference) prefSet.findPreference(COMBINED_BAR_NAVIGATION_COLOR);
+        mNavigationBarColor = (Preference) prefSet.findPreference(NAVIGATION_BAR_COLOR);
 
         mCombinedBarNavigationGlow.setChecked((Settings.System.getInt(mContentResolver,
                 Settings.System.COMBINED_BAR_NAVIGATION_GLOW, 1) == 1));
@@ -159,6 +162,14 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
             cp.setDefaultColor(0x00000000);
             cp.show();
             return true;
+        } else if (preference == mNavigationBarColor) {
+            ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
+                    mNavigationBarColorListener, Settings.System.getInt(getActivity()
+                    .getApplicationContext()
+                    .getContentResolver(), Settings.System.NAVIGATION_BAR_COLOR, 0xFF000000));
+            cp.setDefaultColor(0xFF000000);
+            cp.show();
+            return true;
         }
         return false;
     }
@@ -178,6 +189,15 @@ public class NavigationBar extends SettingsPreferenceFragment implements OnPrefe
             public void colorChanged(int color) {
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.COMBINED_BAR_NAVIGATION_GLOW_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
+    ColorPickerDialog.OnColorChangedListener mNavigationBarColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.NAVIGATION_BAR_COLOR, color);
             }
             public void colorUpdate(int color) {
             }
