@@ -96,11 +96,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                 ServiceManager.getService(Context.WINDOW_SERVICE));
         try {
             if (!windowManager.hasNavigationBar()) {
-                Preference naviBar = findPreference(KEY_NAVIGATION_BAR);
-                Preference mNavbarLeftPref = findPreference(KEY_NAVIGATION_BAR_LEFT);
+                Preference naviBar = findPreference(KEY_NAV_BUTTONS_EDIT);
+//                Preference mNavbarLeftPref = findPreference(KEY_NAVIGATION_BAR_LEFT);
                 if (naviBar != null) {
                     getPreferenceScreen().removePreference(naviBar);
-                    getPreferenceScreen().removePreference(mNavbarLeftPref);
+//                    getPreferenceScreen().removePreference(mNavbarLeftPref);
                 }
             } else {
                 Preference hardKeys = findPreference(KEY_HARDWARE_KEYS);
