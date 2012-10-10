@@ -49,7 +49,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_ENABLE = "clock_style";
 
     private static final String STATUS_BAR_COLOR = "status_bar_color";
-    private static final String NOTIFICATION_PANEL_COLOR = "notification_panel_color";
+//    private static final String NOTIFICATION_PANEL_COLOR = "notification_panel_color";
 
     private static final String STATUS_BAR_CLOCK_COLOR = "status_bar_clock_color";
 
@@ -66,7 +66,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private Preference mStatusBarClockColor;
     private Preference mStatusBarColor;
-    private Preference mNotificationPanelColor;
+//    private Preference mNotificationPanelColor;
 
     private ContentResolver mContentResolver;
 
@@ -96,7 +96,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mNotificationpanelTransparency = (ListPreference) prefSet.findPreference(NOTIFICATION_PANEL_TRANSPARENCY);
 
         mStatusBarColor = (Preference) prefSet.findPreference(STATUS_BAR_COLOR);
-        mNotificationPanelColor = (Preference) prefSet.findPreference(NOTIFICATION_PANEL_COLOR);
+//        mNotificationPanelColor = (Preference) prefSet.findPreference(NOTIFICATION_PANEL_COLOR);
 
 	mStatusBarClockColor = (Preference) prefSet.findPreference(STATUS_BAR_CLOCK_COLOR);
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -241,14 +241,14 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             cp.setDefaultColor(0xFF000000);
             cp.show();
             return true;
-        } else if (preference == mNotificationPanelColor) {
+/*        } else if (preference == mNotificationPanelColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
                     mNotificationPanelColorListener, Settings.System.getInt(getActivity()
                     .getApplicationContext()
                     .getContentResolver(), Settings.System.NOTIFICATION_PANEL_COLOR, 0xFF000000));
             cp.setDefaultColor(0xFF000000);
             cp.show();
-            return true;
+            return true;*/
 	}
         return false;
     }
@@ -273,7 +273,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             }
     };
 
-    ColorPickerDialog.OnColorChangedListener mNotificationPanelColorListener =
+/*    ColorPickerDialog.OnColorChangedListener mNotificationPanelColorListener =
         new ColorPickerDialog.OnColorChangedListener() {
             public void colorChanged(int color) {
                 Settings.System.putInt(getContentResolver(),
@@ -281,5 +281,5 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             }
             public void colorUpdate(int color) {
             }
-    };
+    };*/
 }

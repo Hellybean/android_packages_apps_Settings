@@ -4987,6 +4987,8 @@
 
     <!-- Combined Bar #CM -->
     <string name="status_bar_color_title">Status bar color</string>
+<!--
     <string name="notification_panel_color_title">Notification panel color</string>
+-->
 
 </resources>
