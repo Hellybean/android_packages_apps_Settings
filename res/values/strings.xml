@@ -4997,8 +4997,9 @@
 
     <!-- Misc Settings -->
     <string name="misc_settings_title">Misc settings</string>
-
     <string name="pref_interface_sense4_recent_apps_title">Sense 4.0</string>
     <string name="pref_interface_sense4_recent_apps_summary">Toggle for recent apps view</string>
+
+    <string name="title_expanded_volume">Volume slider</string>
 
 </resources>
