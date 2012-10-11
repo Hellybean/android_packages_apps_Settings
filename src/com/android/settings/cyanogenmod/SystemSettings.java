@@ -51,6 +51,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private static final String COMBINED_BAR_NAVIGATION_GLOW = "combined_bar_navigation_glow";
     private static final String COMBINED_BAR_NAVIGATION_GLOW_COLOR = "combined_bar_navigation_glow_color";
     private static final String COMBINED_BAR_NAVIGATION_QUICK_GLOW = "combined_bar_navigation_quick_glow";
+    private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
     private static final String KEY_HARDWARE_KEYS = "hardware_keys";
 
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
@@ -59,6 +60,7 @@ public class SystemSettings extends SettingsPreferenceFragment implements
     private PreferenceScreen mPhoneDrawer;
     private PreferenceScreen mTabletDrawer;
     private ListPreference mKillAppLongpressTimeout;
+    private CheckBoxPreference mUseAltResolver;
 
     private final Configuration mCurConfig = new Configuration();
 
@@ -91,6 +93,11 @@ public class SystemSettings extends SettingsPreferenceFragment implements
                 getPreferenceScreen().removePreference(mTabletDrawer);
             }
         }
+
+	mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
+	mUseAltResolver.setChecked((Settings.System.getInt(getContentResolver(),
+	Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0)) == 1);
+	
 
         IWindowManager windowManager = IWindowManager.Stub.asInterface(
                 ServiceManager.getService(Context.WINDOW_SERVICE));
@@ -169,6 +176,21 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         }
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+        if (preference == mUseAltResolver){
+            value = mUseAltResolver.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    value ? 1 : 0);
+        } else {
+            return super.onPreferenceTreeClick(preferenceScreen, preference);
+        }
+
+        return true;
+    }
+
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mFontSizePref) {
             final String key = preference.getKey();
@@ -184,7 +206,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
             mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntries()[index]);
             return true;
         }
-
         return false;
     }
 }

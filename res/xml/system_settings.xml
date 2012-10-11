@@ -50,6 +50,12 @@
         android:fragment="com.android.settings.cyanogenmod.TabletPowerWidget"
         android:title="@string/notification_drawer_title" />
 
+        <CheckBoxPreference
+            android:key="use_alt_resolver"
+            android:title="@string/alt_resolver"
+            android:summary="@string/alt_resolver_summary"
+            android:defaultValue="false" />
+
     <PreferenceScreen
         android:key="wallpaper"
         android:title="@string/wallpaper_settings_title"

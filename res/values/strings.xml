@@ -4350,6 +4350,8 @@
     <string name="kill_app_longpress_timeout_1000">1000ms</string>
     <string name="kill_app_longpress_timeout_500">500ms</string>
 
+    <string name="alt_resolver">Use Alt Default App Grid</string>
+    <string name="alt_resolver_summary">Use Alternate (GB style) Default App Picker</string>
 
     <!-- Hardware keys -->
     <string name="hardware_keys_title">Hardware keys</string>
