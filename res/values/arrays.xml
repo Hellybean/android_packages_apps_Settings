@@ -1530,6 +1530,7 @@
         <item>300</item>
         <item>500</item>
         <item>1000</item>
+    </string-array>
 
     <!--- Nav buttons height -->
     <string-array name="nav_buttons_height_entries" translatable="false">
