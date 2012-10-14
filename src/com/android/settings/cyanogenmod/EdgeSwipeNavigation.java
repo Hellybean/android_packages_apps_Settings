@@ -19,6 +19,7 @@ package com.android.settings.cyanogenmod;
 import android.content.ContentResolver;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -71,6 +72,8 @@ public class EdgeSwipeNavigation extends SettingsPreferenceFragment implements
     private ContentResolver mContentResolver;
 
     private SharedPreferences mPrefs;
+
+    private Handler mHandler = new Handler();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -232,4 +235,31 @@ public class EdgeSwipeNavigation extends SettingsPreferenceFragment implements
 
         return true;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Settings.System.putInt(mContentResolver, Settings.System.SHOW_GESTURES, 1);
+            }
+        }, 500);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+         mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Settings.System.putInt(mContentResolver, Settings.System.SHOW_GESTURES, 0);
+            }
+        }, 500);
+    }
+
+
+
 }

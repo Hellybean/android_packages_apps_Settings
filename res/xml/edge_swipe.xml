@@ -33,7 +33,7 @@
 
     <com.android.settings.cyanogenmod.QuadNumberPickerPreference
             android:key="zone_one_grid"
-            android:title="Zone 1 Size"
+            android:title="Zone 1 Size - White"
             android:summary="Start and end points as percentage of screen size"
             settings:pickerTitle1="X Start"
             settings:pickerTitle2="X End"
@@ -68,7 +68,7 @@
 
     <com.android.settings.cyanogenmod.QuadNumberPickerPreference
             android:key="zone_two_grid"
-            android:title="Zone 2 Size"
+            android:title="Zone 2 Size - Red"
             android:summary="Start and end points as percentage of screen size"
             settings:pickerTitle1="X Start"
             settings:pickerTitle2="X End"
@@ -103,7 +103,7 @@
 
     <com.android.settings.cyanogenmod.QuadNumberPickerPreference
             android:key="zone_three_grid"
-            android:title="Zone 3 Size"
+            android:title="Zone 3 Size - Green"
             android:summary="Start and end points as percentage of screen size"
             settings:pickerTitle1="X Start"
             settings:pickerTitle2="X End"
@@ -138,7 +138,7 @@
 
     <com.android.settings.cyanogenmod.QuadNumberPickerPreference
             android:key="zone_four_grid"
-            android:title="Zone 4 Size"
+            android:title="Zone 4 Size - Blue"
             android:summary="Start and end points as percentage of screen size"
             settings:pickerTitle1="X Start"
             settings:pickerTitle2="X End"

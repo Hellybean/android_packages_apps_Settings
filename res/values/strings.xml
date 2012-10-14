@@ -4991,5 +4991,7 @@
     <string name="gesture_long_press">Long press</string>
     <string name="gesture_swipe">Swipe out of zone</string>
     <string name="gesture_swipe_distance">Swipe distance</string>
+    <string name="gesture_area_too_large">The selected gesture area is too large and will not be set.</string>
+
 
 </resources>

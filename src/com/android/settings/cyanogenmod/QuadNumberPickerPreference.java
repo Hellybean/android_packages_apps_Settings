@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 import com.android.settings.R;
 
 /*
@@ -224,6 +225,12 @@ public class QuadNumberPickerPreference extends DialogPreference {
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
+        if (Math.abs(mNumberPicker2.getValue() - mNumberPicker1.getValue()) > 25 &&
+                Math.abs(mNumberPicker4.getValue() - mNumberPicker3.getValue()) > 25) {
+            Toast.makeText(getContext(), R.string.gesture_area_too_large,
+                    Toast.LENGTH_LONG).show();
+            positiveResult = false;
+        }
         if (positiveResult) {
             String result = mNumberPicker1.getValue() + "|" + mNumberPicker2.getValue() + "|" + mNumberPicker3.getValue() + "|" + mNumberPicker4.getValue();
             persistString(result);
