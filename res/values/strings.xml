@@ -4309,8 +4309,9 @@
 
     <!-- Combined Bar  -->
     <string name="combined_bar_title">Combined bar</string>
-    <string name="combined_bar_auto_hide_title">Auto hide</string>
-    <string name="combined_bar_auto_hide_summary">Allow combined bar to hide when showing a fullscreen app</string>
+    <string name="combined_bar_auto_hide_title">Fullscreen mode</string>
+    <string name="combined_bar_auto_hide_summary">Statusbar auto hides, visible through gesture</string>
+    <string name="combined_bar_auto_hide_timeout_title">Fullscreen statusbar timeout</string>
 
     <!-- Navigation Bar  -->
     <string name="navigation_bar_title">Navigation bar</string>
@@ -4963,6 +4964,7 @@
     <string name="edge_swipe_menu">Menu</string>
     <string name="edge_swipe_start">Edge distance</string>
     <string name="edge_swipe_distance">Swipe distance</string>
+    <string name="edge_swipe_statusbar">Show status bar when fullscreen</string>
     <string name="edge_swipe_blacklist_title">Edge swipe blacklist</string>
 
     <string name="status_bar_clock_color_title">Color</string>

@@ -43,6 +43,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String STATUS_BAR_SIGNAL = "status_bar_signal";
     private static final String COMBINED_BAR_AUTO_HIDE = "combined_bar_auto_hide";
+    private static final String COMBINED_BAR_AUTO_HIDE_TIMEOUT = "combined_bar_auto_hide_timeout";
     private static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String STATUS_BAR_TRANSPARENCY = "status_bar_transparency";
     private static final String NOTIFICATION_PANEL_TRANSPARENCY = "notification_panel_transparency";
@@ -66,6 +67,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private Preference mStatusBarClockColor;
     private Preference mStatusBarColor;
+    private SeekBarPreference mCombinedBarTimeout;
 //    private Preference mNotificationPanelColor;
 
     private ContentResolver mContentResolver;
@@ -149,7 +151,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarCmSignal.setOnPreferenceChangeListener(this);
 
         mCombinedBarAutoHide.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.COMBINED_BAR_AUTO_HIDE, 0) == 1));
+                Settings.System.FULLSCREEN_MODE, 0) == 1));
+
+        mCombinedBarTimeout = (SeekBarPreference) prefSet.findPreference(COMBINED_BAR_AUTO_HIDE_TIMEOUT);
+        mCombinedBarTimeout.setDefault(Settings.System.getInt(getActivity().getApplicationContext()
+                .getContentResolver(), Settings.System.FULLSCREEN_TIMEOUT, 2));
+        mCombinedBarTimeout.setOnPreferenceChangeListener(this);
 
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
@@ -164,6 +171,15 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             mPrefCategoryGeneral.removePreference(mCombinedBarAutoHide);
         }
     }
+
+    public void onResume() {
+        super.onResume();
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        mCombinedBarTimeout.setSummary(String.valueOf(mCombinedBarTimeout.getDefault()));
+     }
+
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mStatusBarAmPm) {
@@ -197,6 +213,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.STATUS_BAR_SIGNAL_TEXT, signalStyle);
             mStatusBarCmSignal.setSummary(mStatusBarCmSignal.getEntries()[index]);
             return true;
+        } else if (preference == mCombinedBarTimeout) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(mContentResolver, Settings.System.FULLSCREEN_TIMEOUT, value);
+            mCombinedBarTimeout.setSummary(String.valueOf(value));
         } else if (preference == mStatusBarClock) {
             int clockStyle = Integer.parseInt((String) newValue);
             int index = mStatusBarClock.findIndexOfValue((String) newValue);
@@ -219,7 +239,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         } else if (preference == mCombinedBarAutoHide) {
             value = mCombinedBarAutoHide.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.COMBINED_BAR_AUTO_HIDE, value ? 1 : 0);
+                    Settings.System.FULLSCREEN_MODE, value ? 1 : 0);
             return true;
         } else if (preference == mStatusBarNotifCount) {
             value = mStatusBarNotifCount.isChecked();
