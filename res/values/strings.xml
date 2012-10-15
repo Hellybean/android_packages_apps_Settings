@@ -4354,6 +4354,8 @@
     <string name="kill_app_longpress_timeout_1000">1000ms</string>
     <string name="kill_app_longpress_timeout_500">500ms</string>
 
+    <string name="alt_resolver">Use Alt Default App Grid</string>
+    <string name="alt_resolver_summary">Use Alternate (GB style) Default App Picker</string>
 
     <!-- Hardware keys -->
     <string name="hardware_keys_title">Hardware keys</string>
@@ -4447,6 +4449,12 @@
 
     <string name="notification_panel_transparency_title">Notification Panel Transparency</string>
     <string name="notification_panel_transparency_summary">Adjust Notification Panel transparency</string>
+
+    <string name="status_bar_battery_status_icon">Icon (default)</string> <!-- TODO: dedup -->
+    <string name="status_bar_battery_status_percentage">Percentage</string>
+    <string name="status_bar_battery_status_circle">Circle</string>
+    <string name="status_bar_battery_status_circle_percentage">Circle with percentage</string>
+    <string name="status_bar_battery_status_hidden">Hidden</string> <!-- TODO: dedup -->
 
     <string name="lock_screen_title">Lock screen</string>
 

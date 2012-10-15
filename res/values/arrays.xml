@@ -1028,24 +1028,8 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-    <string-array name="entries_status_bar_battery" translatable="false">
-        <item>@string/status_bar_style_icon</item>
-        <item>@string/status_bar_battery_status_percentage</item>
-        <item>@string/status_bar_battery_status_circle</item>
-        <item>@string/status_bar_battery_status_circle_percentage</item>
-        <item>@string/status_bar_style_hidden</item>
-    </string-array>
-
-    <string-array name="values_status_bar_battery" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
 
     <string-array name="entries_status_bar_transparency">
-    <string-array name="entries_transparency">
         <item>0%</item>
         <item>25%</item>
         <item>50%</item>
@@ -1077,16 +1061,34 @@
         <item>0</item>
     </string-array>
 
+    <string-array name="entries_status_bar_battery" translatable="false">
+        <item>@string/status_bar_battery_status_icon</item>
+        <item>@string/status_bar_battery_status_percentage</item>
+        <item>@string/status_bar_battery_status_circle</item>
+        <item>@string/status_bar_battery_status_circle_percentage</item>
+        <item>@string/status_bar_battery_status_hidden</item>
+    </string-array>
+
+    <string-array name="values_status_bar_battery" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
      <string-array name="entries_status_bar_signal" translatable="false">
         <item>@string/status_bar_style_icon</item>
         <item>@string/status_bar_signal_text_show_text</item>
-        <item>@string/status_bar_style_hidden</item>
+        <item>@string/status_bar_signal_text_show_bars_text</item>
+        <item>@string/status_bar_signal_text_hidden</item>
      </string-array>
 
      <string-array name="values_status_bar_signal" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="lockscreen_delay_entries" translatable="false">
