@@ -4331,7 +4331,9 @@
     <string name="navigation_bar_height_40">40dp</string>
     <string name="navigation_bar_height_36">36dp</string>
     <string name="navigation_bar_height_32">32dp</string>
+    <string name="navigation_bar_height_30">30dp</string>
     <string name="navigation_bar_height_28">28dp</string>
+    <string name="navigation_bar_height_26">26dp</string>
     <string name="navigation_bar_height_24">24dp</string>
 
     <string name="navigation_bar_left_title">Navigation bar on left</string>
