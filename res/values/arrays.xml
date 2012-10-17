@@ -1551,7 +1551,9 @@
         <item>@string/navigation_bar_height_40</item>
         <item>@string/navigation_bar_height_36</item>
         <item>@string/navigation_bar_height_32</item>
+        <item>@string/navigation_bar_height_30</item>
         <item>@string/navigation_bar_height_28</item>
+        <item>@string/navigation_bar_height_26</item>
         <item>@string/navigation_bar_height_24</item>
     </string-array>
 
@@ -1561,7 +1563,9 @@
         <item>40</item>
         <item>36</item>
         <item>32</item>
+        <item>30</item>
         <item>28</item>
+        <item>26</item>
         <item>24</item>
     </string-array>
 
