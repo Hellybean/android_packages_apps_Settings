@@ -1031,6 +1031,8 @@
 
     <string-array name="entries_status_bar_transparency">
         <item>0%</item>
+        <item>5%</item>
+        <item>10%</item>
         <item>25%</item>
         <item>50%</item>
         <item>75%</item>
@@ -1039,6 +1041,8 @@
 
     <string-array name="values_status_bar_transparency" translatable="false">
         <item>100</item>
+        <item>95</item>
+        <item>90</item>
         <item>75</item>
         <item>50</item>
         <item>25</item>
@@ -1047,6 +1051,8 @@
 
     <string-array name="entries_notification_panel_transparency">
         <item>0%</item>
+        <item>5%</item>
+        <item>10%</item>
         <item>25%</item>
         <item>50%</item>
         <item>75%</item>
@@ -1055,6 +1061,8 @@
 
     <string-array name="values_notification_panel_transparency" translatable="false">
         <item>100</item>
+        <item>95</item>
+        <item>90</item>
         <item>75</item>
         <item>50</item>
         <item>25</item>
