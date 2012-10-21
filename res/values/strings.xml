@@ -4997,5 +4997,10 @@
     <string name="gesture_swipe_distance">Swipe distance</string>
     <string name="gesture_area_too_large">The selected gesture area is too large and will not be set.</string>
 
+    <!-- Misc Settings -->
+    <string name="misc_settings_title">Misc settings</string>
+
+    <string name="pref_interface_sense4_recent_apps_title">Sense 4.0</string>
+    <string name="pref_interface_sense4_recent_apps_summary">Toggle for recent apps view</string>
 
 </resources>
