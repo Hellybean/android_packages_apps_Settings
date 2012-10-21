@@ -1509,8 +1509,6 @@
         <item>@string/hardware_keys_action_search</item>
         <item>@string/hardware_keys_action_voice_search</item>
         <item>@string/hardware_keys_action_in_app_search</item>
-        <item>@string/edge_swipe_expand</item>
-        <item>@string/edge_swipe_hide</item>
     </string-array>
 
     <string-array name="hardware_keys_action_values" translatable="false">
@@ -1520,8 +1518,6 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
-        <item>6</item>
-        <item>7</item>
     </string-array>
 
     <!--- Volume key cursor control -->
