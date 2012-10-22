@@ -41,4 +41,10 @@
         android:summary="@string/high_end_gfx_summary"
         android:defaultValue="false" />
 
+    <CheckBoxPreference
+        android:key="disable_high_end_gfx"
+        android:title="@string/disable_high_end_gfx_title"
+        android:summary="@string/disable_high_end_gfx_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

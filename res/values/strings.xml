@@ -4878,7 +4878,9 @@
     <!-- High End Gfx Effects -->
     <string name="display_category_advanced_title">Advanced</string>
     <string name="high_end_gfx_title">High end graphic effects</string>
-    <string name="high_end_gfx_summary">Enable graphic effects disabled on lower end devices</string>
+    <string name="high_end_gfx_summary">Enable graphic effects on lower end devices</string>
+    <string name="disable_high_end_gfx_title">High end graphic effects</string>
+    <string name="disable_high_end_gfx_summary">Disable graphic effects on high end devices</string>
 
     <string name="ok">OK</string>
 

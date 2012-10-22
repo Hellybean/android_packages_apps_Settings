@@ -46,11 +46,15 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String KEY_HIGH_END_GFX = "high_end_gfx";
 
+    private static final String KEY_HIGH_END_GFX_DISABLED = "disable_high_end_gfx";
+
     private CheckBoxPreference mSense4RecentApps;
 
     private CheckBoxPreference mKillAppLongpressBack;
 
     private CheckBoxPreference mHighEndGfx;
+
+    private CheckBoxPreference mDisableHighEndGfx;
 
     private ListPreference mKillAppLongpressTimeout;
 
@@ -80,9 +84,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
             boolean isHighEndGfx = ActivityManager.isHighEndGfx(getActivity().getWindowManager()
                                                                 .getDefaultDisplay());
             mHighEndGfx = (CheckBoxPreference) findPreference(KEY_HIGH_END_GFX);
+            mDisableHighEndGfx = (CheckBoxPreference) findPreference(KEY_HIGH_END_GFX_DISABLED);
             if(isHighEndGfx) {
                 getPreferenceScreen().removePreference(mHighEndGfx);
+                mDisableHighEndGfx.setChecked((Settings.System.getInt(getContentResolver(),
+                                                               Settings.System.HIGH_END_GFX_DISABLED, 0) == 1));
             } else {
+                getPreferenceScreen().removePreference(mDisableHighEndGfx);
                 mHighEndGfx.setChecked((Settings.System.getInt(getContentResolver(),
                                                                Settings.System.HIGH_END_GFX_ENABLED, 0) == 1));
             }
@@ -129,6 +137,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
         } else if (preference == mHighEndGfx) {
             Settings.System.putInt(getContentResolver(),
                                    Settings.System.HIGH_END_GFX_ENABLED, mHighEndGfx.isChecked() ? 1 : 0);
+        } else if (preference == mDisableHighEndGfx) {
+            Settings.System.putInt(getContentResolver(),
+                                   Settings.System.HIGH_END_GFX_DISABLED, mDisableHighEndGfx.isChecked() ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
