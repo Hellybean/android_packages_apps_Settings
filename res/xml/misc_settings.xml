@@ -35,4 +35,10 @@
             android:entries="@array/kill_app_longpress_timeout_entries"
             android:entryValues="@array/kill_app_longpress_timeout_values" />
 
+    <CheckBoxPreference
+        android:key="high_end_gfx"
+        android:title="@string/high_end_gfx_title"
+        android:summary="@string/high_end_gfx_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

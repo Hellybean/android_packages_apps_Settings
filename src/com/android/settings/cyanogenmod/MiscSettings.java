@@ -16,6 +16,7 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
@@ -38,12 +39,22 @@ import com.android.settings.Utils;
 public class MiscSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String SENSE4_RECENT_APPS_PREF = "pref_interface_sense4_recent_apps";
+
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
 
+    private static final String KEY_HIGH_END_GFX = "high_end_gfx";
+
     private CheckBoxPreference mSense4RecentApps;
+
     private CheckBoxPreference mKillAppLongpressBack;
+
+    private CheckBoxPreference mHighEndGfx;
+
     private ListPreference mKillAppLongpressTimeout;
+
+
 
     private ContentResolver mContentResolver;
 
@@ -59,16 +70,22 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
 	mSense4RecentApps = (CheckBoxPreference) findPreference(SENSE4_RECENT_APPS_PREF); 
         mSense4RecentApps.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.SENSE4_RECENT_APPS, 0)) == 1);
-
         mKillAppLongpressBack = (CheckBoxPreference) findPreference(KILL_APP_LONGPRESS_BACK);
-
         mKillAppLongpressTimeout = (ListPreference) findPreference(KEY_KILL_APP_LONGPRESS_TIMEOUT);
         mKillAppLongpressTimeout.setOnPreferenceChangeListener(this);
-
         int statusKillAppLongpressTimeout = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
                  Settings.System.KILL_APP_LONGPRESS_TIMEOUT, 1500);
         mKillAppLongpressTimeout.setValue(String.valueOf(statusKillAppLongpressTimeout));
         mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntry());
+            boolean isHighEndGfx = ActivityManager.isHighEndGfx(getActivity().getWindowManager()
+                                                                .getDefaultDisplay());
+            mHighEndGfx = (CheckBoxPreference) findPreference(KEY_HIGH_END_GFX);
+            if(isHighEndGfx) {
+                getPreferenceScreen().removePreference(mHighEndGfx);
+            } else {
+                mHighEndGfx.setChecked((Settings.System.getInt(getContentResolver(),
+                                                               Settings.System.HIGH_END_GFX_ENABLED, 0) == 1));
+            }
     }
 
     @Override
@@ -109,6 +126,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
                     value ? 1 : 0);
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
+        } else if (preference == mHighEndGfx) {
+            Settings.System.putInt(getContentResolver(),
+                                   Settings.System.HIGH_END_GFX_ENABLED, mHighEndGfx.isChecked() ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
