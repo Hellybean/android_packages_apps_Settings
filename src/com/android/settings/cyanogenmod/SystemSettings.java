@@ -158,21 +158,6 @@ public class SystemSettings extends SettingsPreferenceFragment implements
         }
     }
 
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        boolean value;
-        if (preference == mUseAltResolver){
-            value = mUseAltResolver.isChecked();
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
-                    value ? 1 : 0);
-        } else {
-            return super.onPreferenceTreeClick(preferenceScreen, preference);
-        }
-
-        return true;
-    }
-
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mFontSizePref) {
             final String key = preference.getKey();
