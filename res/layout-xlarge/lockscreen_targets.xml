@@ -9,18 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_light"
+        android:gravity="center_horizontal"
         android:layout_margin="8dip"
         android:padding="4dip"
-        android:gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/lockscreen_target_info" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.4" />
-
-    <!-- remove for now
+<!-- Remove for now
     <com.android.internal.widget.multiwaveview.MultiWaveView
         android:id="@+id/lock_target"
         android:layout_width="match_parent"
@@ -35,9 +30,9 @@
         prvandroid:snapMargin="@*android:dimen/glowpadview_snap_margin"
         prvandroid:hitRadius="@*android:dimen/glowpadview_hit_radius"
         prvandroid:rightChevronDrawable="@*android:drawable/ic_lockscreen_chevron_right"
-        prvandroid:horizontalOffset="0dp"
-        prvandroid:verticalOffset="55dp"
+        prvandroid:horizontalOffset="0dip"
+        prvandroid:verticalOffset="0dip"
         prvandroid:feedbackCount="3"
         prvandroid:vibrationDuration="20" />
-    -->
+ -->
 </LinearLayout>
