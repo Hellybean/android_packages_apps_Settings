@@ -4352,6 +4352,8 @@
     <string name="combined_bar_navigation_glow_color_title">Button glow color</string>
     <string name="combined_bar_navigation_quick_glow_title">Shorter button glow</string>
 
+    <string name="lockscreen_text_color_title">Change color of lockscreen text</string>
+
     <!--- Kill app longpress back -->
     <string name="kill_app_longpress_timeout">Longpress back kill timeout</string>
     <string name="kill_app_longpress_timeout_3000">3000ms</string>
