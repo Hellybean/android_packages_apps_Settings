@@ -4989,8 +4989,11 @@
 <!--
     <string name="notification_panel_color_title">Notification panel color</string>
 -->
-    <string name="toggle_icon_color_on_title">Color for notification toggle icons (on)</string>
-    <string name="toggle_icon_color_off_title">Color for notification toggle icons (off)</string>
+    <string name="toggle_color_title">Toggles Color</string>
+    <string name="toggle_icon_color_on_title">Color icons (on)</string>
+    <string name="toggle_icon_color_on_summary">Sets color for activated toggle icons</string>
+    <string name="toggle_icon_color_off_title">Color icons (off)</string>
+    <string name="toggle_icon_color_off_summary">Sets color for not activated toggle icons</string>
 
     <string name="edge_swipe_blacklist_title">Gesture app blacklist</string>
 

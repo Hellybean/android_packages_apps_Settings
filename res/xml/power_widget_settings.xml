@@ -48,15 +48,22 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+       android:title="@string/toggle_color_title">
+
         <PreferenceScreen
             android:key="toggle_icon_color_on"
-            android:title="@string/toggle_icon_color_on_title">
+            android:title="@string/toggle_icon_color_on_title"
+            android:summary="@string/toggle_icon_color_on_summary">
         </PreferenceScreen>
 
         <PreferenceScreen
             android:key="toggle_icon_color_off"
-            android:title="@string/toggle_icon_color_off_title">
+            android:title="@string/toggle_icon_color_off_title"
+            android:summary="@string/toggle_icon_color_off_summary">
         </PreferenceScreen>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
        android:title="@string/power_widget_behavior">
