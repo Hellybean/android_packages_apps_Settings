@@ -250,7 +250,7 @@ public static final String KEY_LOCKSCREEN_TARGETS = "lockscreen_targets";
                     mTextColorListener, Settings.System.getInt(getActivity()
                     .getApplicationContext()
                     .getContentResolver(), Settings.System.LOCKSCREEN_CUSTOM_TEXT_COLOR, 0xFFFFFFFF));
-            cp.setDefaultColor(0xFF000000);
+            cp.setDefaultColor(0xFFFFFFFF);
             cp.show();
             return true;
         }
