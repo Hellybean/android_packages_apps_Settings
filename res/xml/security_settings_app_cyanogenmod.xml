@@ -29,18 +29,6 @@
             android:entryValues="@array/sms_security_check_limit_values"
             android:defaultValue="30" />
 
-    <!-- Pdroid extension -->
-    <Preference
-            android:key="pdroidextension"
-            android:title="@string/pdroid_title"
-            android:summary="@string/pdroid_summary">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.privacy.pdroid.extension"
-                android:targetClass="com.android.privacy.pdroid.extension.PDroidExtensionActivity" />
-    </Preference>
-
-
     </PreferenceCategory>
 
 </PreferenceScreen>
