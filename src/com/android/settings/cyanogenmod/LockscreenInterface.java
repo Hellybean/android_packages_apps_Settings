@@ -165,12 +165,12 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             mLockscreenStyle = Settings.System.getInt(mResolver,
                     Settings.System.LOCKSCREEN_STYLE, 0);
             mUseOp4Lockscreen = (mLockscreenStyle == LOCK_STYLE_OP4);
-//            if (!mUseOp4Lockscreen) {
+            if (!mUseOp4Lockscreen) {
                 Preference optimusColor = findPreference(KEY_OPTIMUS_COLOR);
                 if (optimusColor != null) {
                     getPreferenceScreen().removePreference(optimusColor);
 		}
-//	    }
+	    }
 	}
 
     private void updateCustomBackgroundSummary() {
@@ -300,7 +300,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mLockBgColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
-                    mTextColorListener, Settings.System.getInt(getActivity()
+                    mCirclesBgColorListener, Settings.System.getInt(getActivity()
                     .getApplicationContext()
                     .getContentResolver(), Settings.System.CIRCLES_LOCK_BG_COLOR, 0xD2000000));
             cp.setDefaultColor(0xD2000000);
@@ -308,7 +308,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mLockRingColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
-                    mTextColorListener, Settings.System.getInt(getActivity()
+                    mCirclesRingColorListener, Settings.System.getInt(getActivity()
                     .getApplicationContext()
                     .getContentResolver(), Settings.System.CIRCLES_LOCK_RING_COLOR, 0xFFFFFFFF));
             cp.setDefaultColor(0xFFFFFFFF);
@@ -316,7 +316,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mLockHaloColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
-                    mTextColorListener, Settings.System.getInt(getActivity()
+                    mCirclesHaloColorListener, Settings.System.getInt(getActivity()
                     .getApplicationContext()
                     .getContentResolver(), Settings.System.CIRCLES_LOCK_HALO_COLOR, 0xFFFFFFFF));
             cp.setDefaultColor(0xFFFFFFFF);
@@ -324,7 +324,7 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mLockWaveColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
-                    mTextColorListener, Settings.System.getInt(getActivity()
+                    mCirclesWaveColorListener, Settings.System.getInt(getActivity()
                     .getApplicationContext()
                     .getContentResolver(), Settings.System.CIRCLES_LOCK_WAVE_COLOR, 0xD2FFFFFF));
             cp.setDefaultColor(0xD2FFFFFF);
@@ -448,6 +448,42 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             public void colorChanged(int color) {
                 Settings.System.putInt(getContentResolver(),
                         Settings.System.LOCKSCREEN_CUSTOM_TEXT_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
+    ColorPickerDialog.OnColorChangedListener mCirclesBgColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.CIRCLES_LOCK_BG_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
+    ColorPickerDialog.OnColorChangedListener mCirclesRingColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.CIRCLES_LOCK_RING_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
+    ColorPickerDialog.OnColorChangedListener mCirclesHaloColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.CIRCLES_LOCK_HALO_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
+    ColorPickerDialog.OnColorChangedListener mCirclesWaveColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.CIRCLES_LOCK_WAVE_COLOR, color);
             }
             public void colorUpdate(int color) {
             }
