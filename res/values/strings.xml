@@ -4350,6 +4350,12 @@
 
     <string name="lockscreen_text_color_title">Change color of lockscreen text</string>
 
+    <string name="optimus_lock_color_title">Colors for optimus lock</string>
+    <string name="circles_lock_bg_color_title">Background color</string>
+    <string name="circles_lock_ring_color_title">Ring color</string>
+    <string name="circles_lock_halo_color_title">Halo color</string>
+    <string name="circles_lock_wave_color_title">Wave color</string>
+
     <!--- Kill app longpress back -->
     <string name="kill_app_longpress_timeout">Longpress back kill timeout</string>
     <string name="kill_app_longpress_timeout_3000">3000ms</string>
