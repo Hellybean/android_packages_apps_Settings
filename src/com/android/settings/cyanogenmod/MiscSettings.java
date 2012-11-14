@@ -39,26 +39,20 @@ import com.android.settings.Utils;
 public class MiscSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String SENSE4_RECENT_APPS_PREF = "pref_interface_sense4_recent_apps";
-
     private static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
-
     private static final String KEY_KILL_APP_LONGPRESS_TIMEOUT = "kill_app_longpress_timeout";
-
     private static final String KEY_HIGH_END_GFX = "high_end_gfx";
-
     private static final String KEY_HIGH_END_GFX_DISABLED = "disable_high_end_gfx";
+    private static final String PREF_USE_ALT_RESOLVER = "use_alt_resolver";
+    private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
 
     private CheckBoxPreference mSense4RecentApps;
-
     private CheckBoxPreference mKillAppLongpressBack;
-
     private CheckBoxPreference mHighEndGfx;
-
     private CheckBoxPreference mDisableHighEndGfx;
-
+    private CheckBoxPreference mUseAltResolver;
+    private CheckBoxPreference mTabletui;
     private ListPreference mKillAppLongpressTimeout;
-
-
 
     private ContentResolver mContentResolver;
 
@@ -70,10 +64,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
         PreferenceScreen prefSet = getPreferenceScreen();
         mContentResolver = getActivity().getApplicationContext().getContentResolver();
 
-
 	mSense4RecentApps = (CheckBoxPreference) findPreference(SENSE4_RECENT_APPS_PREF); 
         mSense4RecentApps.setChecked((Settings.System.getInt(getContentResolver(),
                         Settings.System.SENSE4_RECENT_APPS, 0)) == 1);
+
         mKillAppLongpressBack = (CheckBoxPreference) findPreference(KILL_APP_LONGPRESS_BACK);
         mKillAppLongpressTimeout = (ListPreference) findPreference(KEY_KILL_APP_LONGPRESS_TIMEOUT);
         mKillAppLongpressTimeout.setOnPreferenceChangeListener(this);
@@ -81,6 +75,16 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
                  Settings.System.KILL_APP_LONGPRESS_TIMEOUT, 1500);
         mKillAppLongpressTimeout.setValue(String.valueOf(statusKillAppLongpressTimeout));
         mKillAppLongpressTimeout.setSummary(mKillAppLongpressTimeout.getEntry());
+
+        /* Alternate Default App Chooser */
+        mUseAltResolver = (CheckBoxPreference) findPreference(PREF_USE_ALT_RESOLVER);
+        mUseAltResolver.setChecked((Settings.System.getInt(getContentResolver(),
+                        Settings.System.ACTIVITY_RESOLVER_USE_ALT, 0)) == 1);
+
+        mTabletui = (CheckBoxPreference) findPreference(PREF_MODE_TABLET_UI);
+        mTabletui.setChecked(Settings.System.getInt(getContentResolver(),
+                        Settings.System.MODE_TABLET_UI, 0) == 1);
+
             boolean isHighEndGfx = ActivityManager.isHighEndGfx(getActivity().getWindowManager()
                                                                 .getDefaultDisplay());
             mHighEndGfx = (CheckBoxPreference) findPreference(KEY_HIGH_END_GFX);
@@ -132,6 +136,11 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
             value = mSense4RecentApps.isChecked();
             Settings.System.putInt(getContentResolver(), Settings.System.SENSE4_RECENT_APPS,
                     value ? 1 : 0);
+        } else if (preference == mUseAltResolver) {
+	    value = mUseAltResolver.isChecked();
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.ACTIVITY_RESOLVER_USE_ALT,
+                    value ? 1 : 0);
         } else if (preference == mKillAppLongpressBack) {
             writeKillAppLongpressBackOptions();
         } else if (preference == mHighEndGfx) {
@@ -140,6 +149,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements OnPrefer
         } else if (preference == mDisableHighEndGfx) {
             Settings.System.putInt(getContentResolver(),
                                    Settings.System.HIGH_END_GFX_DISABLED, mDisableHighEndGfx.isChecked() ? 1 : 0);
+        } else if (preference == mTabletui) {
+            value = mTabletui.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.MODE_TABLET_UI,
+                    value ? 1 : 0);
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
