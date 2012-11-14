@@ -71,12 +71,16 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String ROTATION_ANGLE_DELIM = ", ";
     private static final String ROTATION_ANGLE_DELIM_FINAL = " & ";
 
+    private static final String PREF_MODE_TABLET_UI = "mode_tabletui";
+
     private CheckBoxPreference mLockScreenRotation;
     private CheckBoxPreference mVolumeWake;
     private CheckBoxPreference mElectronBeamAnimationOn;
     private CheckBoxPreference mElectronBeamAnimationOff;
     private PreferenceScreen mNotificationPulse;
     private PreferenceScreen mBatteryPulse;
+
+    private CheckBoxPreference mTabletui;
 
     private CheckBoxPreference mAccelerometer;
     private ListPreference mFontSizePref;
@@ -200,6 +204,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                         Settings.System.VOLUME_WAKE_SCREEN, 0) == 1);
             }
         }
+
+        mTabletui = (CheckBoxPreference) findPreference(PREF_MODE_TABLET_UI);
+        mTabletui.setChecked(Settings.System.getInt(resolver,
+                        Settings.System.MODE_TABLET_UI, 0) == 1);
 
     }
 
@@ -408,6 +416,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.LOCKSCREEN_ROTATION,
                     mLockScreenRotation.isChecked() ? 1 : 0);
             updateDisplayRotationPreferenceDescription();
+            return true;
+        } else if (preference == mTabletui) {
+            boolean value = mTabletui.isChecked();
+            Settings.System.putInt(getContentResolver(), Settings.System.MODE_TABLET_UI,
+                    value ? 1 : 0);
             return true;
 	}
         return super.onPreferenceTreeClick(preferenceScreen, preference);

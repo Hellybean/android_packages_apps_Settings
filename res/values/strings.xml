@@ -4365,6 +4365,9 @@
     <string name="kill_app_longpress_timeout_1000">1000ms</string>
     <string name="kill_app_longpress_timeout_500">500ms</string>
 
+    <string name="alt_resolver">Use Alt Default App Grid</string>
+    <string name="alt_resolver_summary">Use Alternate (GB style) Default App Picker</string>
+
     <!-- Hardware keys -->
     <string name="hardware_keys_title">Hardware keys</string>
     <string name="hardware_keys_bindings_title">Key actions</string>
@@ -5066,10 +5069,6 @@
     <string name="misc_settings_title">Misc settings</string>
     <string name="pref_interface_sense4_recent_apps_title">Sense 4.0</string>
     <string name="pref_interface_sense4_recent_apps_summary">Toggle for recent apps view</string>
-
-    <!-- Alternate Default App Grid -->
-    <string name="alt_resolver">Change default app grid</string>
-    <string name="alt_resolver_summary">to an alternate GB style default app picker</string>
 
     <string name="title_expanded_volume">Volume slider</string>
 

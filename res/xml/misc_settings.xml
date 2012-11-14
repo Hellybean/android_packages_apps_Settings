@@ -18,15 +18,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/misc_settings_title">
 
-    	<CheckBoxPreference
-            android:key="pref_interface_sense4_recent_apps"
-            android:title="@string/pref_interface_sense4_recent_apps_title"
-            android:summary="@string/pref_interface_sense4_recent_apps_summary" />
-
-    	<CheckBoxPreference
-	    android:key="use_alt_resolver"
-            android:title="@string/alt_resolver"
-            android:summary="@string/alt_resolver_summary" />
+    <CheckBoxPreference
+        android:key="pref_interface_sense4_recent_apps"
+        android:title="@string/pref_interface_sense4_recent_apps_title"
+        android:summary="@string/pref_interface_sense4_recent_apps_summary" />
 
         <CheckBoxPreference
             android:key="kill_app_longpress_back"
@@ -40,22 +35,16 @@
             android:entries="@array/kill_app_longpress_timeout_entries"
             android:entryValues="@array/kill_app_longpress_timeout_values" />
 
-    	<CheckBoxPreference
-            android:key="high_end_gfx"
-            android:title="@string/high_end_gfx_title"
-            android:summary="@string/high_end_gfx_summary"
-            android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="high_end_gfx"
+        android:title="@string/high_end_gfx_title"
+        android:summary="@string/high_end_gfx_summary"
+        android:defaultValue="false" />
 
-    	<CheckBoxPreference
-           android:key="disable_high_end_gfx"
-           android:title="@string/disable_high_end_gfx_title"
-           android:summary="@string/disable_high_end_gfx_summary"
-           android:defaultValue="false" />
-
-        <CheckBoxPreference
-            android:key="mode_tabletui"
-            android:title="@string/tablet_ui"
-            android:summary="@string/tablet_ui_summary"
-            android:defaultValue="false" />
+    <CheckBoxPreference
+        android:key="disable_high_end_gfx"
+        android:title="@string/disable_high_end_gfx_title"
+        android:summary="@string/disable_high_end_gfx_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>
