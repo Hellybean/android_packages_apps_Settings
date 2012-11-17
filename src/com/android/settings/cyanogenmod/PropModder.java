@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -33,6 +34,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.InputFilter;
 import android.text.InputFilter.LengthFilter;
@@ -160,6 +162,7 @@ public class PropModder extends PreferenceFragment implements
     private CheckBoxPreference mGpuPref;
     private AlertDialog mAlertDialog;
     private NotificationManager mNotificationManager;
+    private Preference mLcdDensity;
 
     private File tmpDir = new File("/system/tmp");
     private File init_d = new File("/system/etc/init.d");
@@ -167,6 +170,10 @@ public class PropModder extends PreferenceFragment implements
     //handler for command processor
     private final CMDProcessor cmd = new CMDProcessor();
     private PreferenceScreen prefSet;
+
+    int newDensityValue;
+
+    DensityChanger densityFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -199,6 +206,16 @@ public class PropModder extends PreferenceFragment implements
         mTcpStackPref = (CheckBoxPreference) prefSet.findPreference(TCP_STACK_PREF);
 
         mJitPref = (CheckBoxPreference) prefSet.findPreference(JIT_PREF);
+
+        mLcdDensity = findPreference("lcd_density_setup");
+        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
+        try {
+            newDensityValue = Integer.parseInt(currentProperty);
+        } catch (Exception e) {
+            getPreferenceScreen().removePreference(mLcdDensity);
+        }
+
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         mModVersionPref = (EditTextPreference) prefSet.findPreference(MOD_VERSION_PREF);
         String mod = Helpers.findBuildPropValueOf(MOD_VERSION_PROP);
@@ -261,6 +278,9 @@ public class PropModder extends PreferenceFragment implements
         } else if (preference == mGpuPref) {
             value = mGpuPref.isChecked();
             return doMod(GPU_PERSIST_PROP, GPU_PROP, String.valueOf(value ? 1 : DISABLE));
+        } else if (preference == mLcdDensity) {
+            ((PreferenceActivity) getActivity())
+            .startPreferenceFragment(new DensityChanger(), true);
         }
 
         return false;
