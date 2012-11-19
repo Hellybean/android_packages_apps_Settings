@@ -67,6 +67,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private static final String TOGGLE_ICON_ON_COLOR = "toggle_icon_color_on";
     private static final String TOGGLE_ICON_OFF_COLOR = "toggle_icon_color_off";
 
+    private static final String UI_EXP_BRIGHTNESS = "expanded_brightness";
     private static final String UI_EXP_VOLUME = "expanded_volume";
 
     private CheckBoxPreference mPowerWidget;
@@ -80,6 +81,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
     private Preference mToggleIconOffColor;
 
     private CheckBoxPreference mVolume;
+    private CheckBoxPreference mBrightness;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -129,8 +131,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             mVolume.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
                     .getContentResolver(), Settings.System.PHONE_STATUS_BAR_VOLUME, 0) == 1));
 
-        mToggleIconOnColor = (Preference) prefSet.findPreference(TOGGLE_ICON_ON_COLOR);
-        mToggleIconOffColor = (Preference) prefSet.findPreference(TOGGLE_ICON_OFF_COLOR);
+            mToggleIconOnColor = (Preference) prefSet.findPreference(TOGGLE_ICON_ON_COLOR);
+            mToggleIconOffColor = (Preference) prefSet.findPreference(TOGGLE_ICON_OFF_COLOR);
+
+            mBrightness = (CheckBoxPreference) prefSet.findPreference(UI_EXP_BRIGHTNESS);
+            mBrightness.setChecked((Settings.System.getInt(getActivity().getApplicationContext()
+                    .getContentResolver(), Settings.System.PHONE_STATUS_BAR_BRIGHTNESS, 0) == 1));
         }
     }
 
@@ -168,8 +174,10 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             value = mVolume.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PHONE_STATUS_BAR_VOLUME, value ? 1 : 0);
-
-
+        } else if (preference == mBrightness) {
+            value = mBrightness.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PHONE_STATUS_BAR_BRIGHTNESS, value ? 1 : 0);
         } else if (preference == mEnableToggleColors) {
             value = mEnableToggleColors.isChecked();
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
@@ -180,7 +188,6 @@ public class PowerWidget extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.ENABLE_TOGGLE_BAR,
                     value ? 1 : 0);
-
         } else if (preference == mToggleIconOnColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
                     mStatusBarColorListener, Settings.System.getInt(getActivity()

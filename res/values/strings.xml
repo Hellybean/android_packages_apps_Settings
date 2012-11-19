@@ -5072,6 +5072,7 @@
     <string name="alt_resolver_summary">to an alternate GB style default app picker</string>
 
     <string name="title_expanded_volume">Volume slider</string>
+    <string name="title_expanded_brightness">Brightness slider</string>
 
     <!-- Performance Settings | Warning dialog -->
     <string name="performance_settings_warning_header">Warning</string>
