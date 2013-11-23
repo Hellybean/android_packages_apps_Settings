@@ -17,12 +17,12 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="ck_mod_version">CyanKang version</string>
+    <string name="ck_mod_version">HellKat version</string>
 
     <!-- Settings Group: Tweaks -->
     <string name="tweaks_category">Tweaks</string>
 
     <!-- TRDS Settings -->
-    <string name="trds_settings_title">Dark UI (TRDS)</string>
+    <string name="trds_settings_title">Dark HellKat</string>
 
 </resources>
