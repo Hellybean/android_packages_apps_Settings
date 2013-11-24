@@ -51,11 +51,27 @@ public class InitD extends SettingsPreferenceFragment {
     private static final String KEY_FILE_SYSTEM_SPEEDUPS = "file_system_speedups";
     private static final String KEY_READ_AHEAD_KB = "read_ahead_kb";
     private static final String KEY_INIT_D_CREDITS = "init_d_credits";
+    private static final String KEY_BATTERY = "battery";
+    private static final String KEY_TOUCH = "touch";
+    private static final String KEY_MINFREE = "minfree";
+    private static final String KEY_GPURENDER = "gpurender";
+    private static final String KEY_SLEEPERS = "sleepers";
+    private static final String KEY_JOURNALISM = "journalism";
+    private static final String KEY_SQLITE3 = "sqlite3";
+    private static final String KEY_WIFISLEEP = "wifisleep";
+    private static final String KEY_IOSTATS = "iostats";
+    private static final String KEY_SENTRENICE = "sentrenice";
+    private static final String KEY_TWEAKS = "tweaks";
+    private static final String KEY_SPEEDY_MODIFIED = "speedy_modified";
+    private static final String KEY_LOOPY_SMOOTHNESS_TWEAK = "loopy_smoothness_tweak";
 
     private static final String[] KEYS = {
         KEY_ZIPALIGN_APKS, KEY_FIX_PERMISSIONS, KEY_ENABLE_SYSCTL,
         KEY_CLEAR_DATA_CACHE, KEY_ENABLE_CRON, KEY_SD_BOOST,
-                KEY_FILE_SYSTEM_SPEEDUPS, KEY_READ_AHEAD_KB
+                KEY_FILE_SYSTEM_SPEEDUPS, KEY_READ_AHEAD_KB, KEY_BATTERY, 
+	KEY_TOUCH, KEY_MINFREE, KEY_GPURENDER, KEY_SLEEPERS, KEY_JOURNALISM,
+	KEY_SQLITE3, KEY_WIFISLEEP, KEY_IOSTATS, KEY_SENTRENICE, KEY_TWEAKS,
+	KEY_SPEEDY_MODIFIED, KEY_LOOPY_SMOOTHNESS_TWEAK
     };
 
     private HashMap<String, String> mShellVariables;

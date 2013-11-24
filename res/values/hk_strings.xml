@@ -137,7 +137,7 @@
     <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
     <string name="system_power_crt_mode_scale">Scale down</string>
 
-	<!--Lockscreen See Through-->
+   <!--Lockscreen See Through-->
    <string name="see_through_title">See through</string>
    <string name="see_through_summary">Shows the content behind your lockscreen, your data may be visible to those around you</string>
 
@@ -173,6 +173,32 @@
     <string name="pt_empty_app_mem">Empty app mem</string>
     <string name="pt_read_ahead_kb">Read ahead value</string>
     <string name="pt_minfree_values">Minfree values</string>
+    <string name="pt_battery">Enable battery tweaks</string>
+    <string name="ps_battery">Enable/disable battery saving tweaks</string>
+    <string name="pt_touch">Enable touch tweaks</string>
+    <string name="ps_touch">Enable/disable touchscreen tweaks</string>
+    <string name="pt_minfree">Enable minfree values</string>
+    <string name="ps_minfree">Enable/disable minfree tweaks</string>
+    <string name="pt_gpurender">Enable gpu render</string>
+    <string name="ps_gpurender">Enable/disable gpu rendering tweaks</string>
+    <string name="pt_sleepers">Enable sleeping</string>
+    <string name="ps_sleepers">Enable/disable sleeping tweaks</string>
+    <string name="pt_journalism">Enable journalism</string>
+    <string name="ps_journalism">Enable/disable journalism tweaks</string>
+    <string name="pt_sqlite3">Enable sqlite3</string>
+    <string name="ps_sqlite3">Enable/disable sqlite3 tweaks</string>
+    <string name="pt_wifisleep">Enable wifi sleep</string>
+    <string name="ps_wifisleep">Enable/disable wifi sleep tweaks</string>
+    <string name="pt_iostats">Enable iostats</string>
+    <string name="ps_iostats">Enable/disable iostats</string>
+    <string name="pt_setrenice">Enable setrenice</string>
+    <string name="ps_setrenice">Enable/disable setrenice</string>
+    <string name="pt_tweaks">Enable super tweaks</string>
+    <string name="ps_tweaks">Enable/disable super tweaks</string>
+    <string name="pt_speedy_modified">Enable speedy modified</string>
+    <string name="ps_speedy_modified">Enable/disable Speedy modified tweaks</string>
+    <string name="pt_loopy_smoothness_tweak">Enable loopy smoothness</string>
+    <string name="ps_loopy_smoothness_tweak">Enable/disable loopy smoothness tweaks</string>
     <string name="pt_init_d_credits">Developed by:</string>
     <string name="ps_init_d_credits">Jared Rummler (JRummy16)</string>
     <string name="dt_init_d_error">Init.d error</string>
