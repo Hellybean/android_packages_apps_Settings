@@ -382,8 +382,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="mod_version">HellKat version</string>
     <string name="mod_version_default">Unknown</string>
     <!-- About phone screen, build date of ROM -->
-    <string name="build_date">Build date</string>
-    <string name="build_date_default" translatable="false">$(shell date -u +%Y-%m-%d)</string>
+    <!--     <string name="build_date">Build date</string> -->
+    <!--    <string name="build_date_default" translatable="false">$(shell date -u +%Y-%m-%d)</string> -->
     <!-- About device screen, Cpu info -->
     <string name="cpu_info">CPU</string>
     <!-- About phone screen, Free memory info -->
