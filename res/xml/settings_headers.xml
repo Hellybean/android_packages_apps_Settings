@@ -68,12 +68,12 @@
         android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
         android:title="@string/system_settings_title" />
 
-    <!-- Home -->
+    <!-- HALO -->
     <header
-        android:id="@+id/home_settings"
-        android:icon="@drawable/ic_settings_home"
-        android:fragment="com.android.settings.HomeSettings"
-        android:title="@string/home_settings" />
+        android:id="@+id/halo_settings"
+        android:fragment="com.android.settings.hellkat.Halo"
+        android:icon="@drawable/ic_settings_halo" 
+        android:title="@string/halo_settings_title" />
 
     <!-- Lock screen -->
     <header
@@ -82,11 +82,18 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_settings_lockscreen" />
 
-	<!-- TRDS -->
+    <!-- TRDS -->
     <header
         android:id="@+id/trds_settings"
         android:icon="@drawable/ic_settings_trds"
         android:title="@string/trds_settings_title" />
+
+    <!-- Home -->
+    <header
+        android:id="@+id/home_settings"
+        android:icon="@drawable/ic_settings_home"
+        android:fragment="com.android.settings.HomeSettings"
+        android:title="@string/home_settings" />
 
     <!-- Themes -->
     <header
@@ -195,7 +202,7 @@
         android:icon="@drawable/ic_settings_profiles"
         android:fragment="com.android.settings.profiles.ProfilesSettings"
         android:title="@string/profiles_settings_title" />
-
+    
     <!-- Location -->
     <header
         android:fragment="com.android.settings.location.LocationSettings"
