@@ -36,6 +36,8 @@ public class InitD extends SettingsPreferenceFragment {
 
     private static final String TAG = "InitD";
 
+    private AlertDialog alertDialog;
+
     private static final int MSG_LOAD_PREFS = 0;
     private static final int DIALOG_INIT_D_ERROR = 0;
 
@@ -90,6 +92,23 @@ public class InitD extends SettingsPreferenceFragment {
         sActivity = this;
         mPrefs    = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
         loadValues();
+
+        alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle(R.string.init_warning_title);
+        alertDialog.setMessage(getResources().getString(R.string.init_warning));
+        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,
+                getResources().getString(com.android.internal.R.string.ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            public void onCancel(DialogInterface dialog) {
+                InitD.this.finish();
+            }
+        });
+        alertDialog.show();
     }
 
     private void loadValues() {

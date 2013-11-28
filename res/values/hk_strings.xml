@@ -205,6 +205,10 @@
     <string name="dm_init_d_error">It looks like init.d isn\'t setup properly. Please contact your ROM developer.</string>
     <string name="db_exit">Exit</string>
 
+    <!-- Init.d Settings : Warning dialog -->
+    <string name="init_warning_title">Please Read First</string>
+    <string name="init_warning">These Init.d script tweaks have been added to this build for experimental purposes only.  While some people may see improved performance on certain phones, there is always the possibility that some phones may not benefit from the scripts and you may actually see a negative impact.  The ideal situation is to find the right combination of scripts that provides the best bang for your buck while keeping a certain level of stability.</string>
+
     <!-- LCD Density -->
     <string name="dpi">DPI</string>
     <string name="su_dialog_error_title">Warning</string>
