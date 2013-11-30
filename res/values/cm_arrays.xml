@@ -345,7 +345,7 @@
         <item>18</item>
         <item>26</item>
     </string-array>
-		
+
     <!--- Sms security limit -->
     <string-array name="sms_security_check_limit_entries" translatable="false">
         <item>@string/sms_security_check_limit_default</item>

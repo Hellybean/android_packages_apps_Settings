@@ -225,7 +225,7 @@
 
     <!-- Waiver -->
     <string name="cyanogenmod_waiver_title">Waiver</string>
-    <string name="cyanogenmod_waiver_body">Changing this setting may be against your state or government laws.\n\nIn selecting \'OK\' below, you acknowledge this warning and waive, indemnify and hold harmless CyanogenMod and its contributors from all legal liabilities.</string>
+    <string name="cyanogenmod_waiver_body">Changing this setting may be against your state or government laws.\n\nIn selecting \'OK\' below, you acknowledge this warning and waive, indemnify and hold harmless HellKat and its contributors from all legal liabilities.</string>
 
     <!-- Quick settings panel  -->
     <string name="quick_settings_panel_title">Quick Settings panel</string>
@@ -389,7 +389,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
 
     <!-- About phone screen,  setting option name -->
-    <string name="mod_version">HellKat version</string>
+    <!-- <string name="mod_version">CyanogenMod Version</string> -->
     <string name="mod_version_default">Unknown</string>
     <!-- About phone screen, build date of ROM -->
     <!--     <string name="build_date">Build date</string> -->
@@ -402,11 +402,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Anonymous Statistics #CM -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">CyanogenMod statistics</string>
-    <string name="anonymous_statistics_summary">Help make CyanogenMod better by opting into anonymous statistics reporting</string>
+    <string name="anonymous_statistics_title">HellKat Statistics</string>
+    <string name="anonymous_statistics_summary">Help make HellKat better by opting into anonymous statistics reporting</string>
     <string name="anonymous_statistics_warning_title">About</string>
-    <string name="anonymous_statistics_warning">Opting into CyanogenMod Statistics will allow non-personal data to be submitted to the
-        developers of CyanogenMod to track unique installations across devices. The information submitted includes an unique identifier,
+    <string name="anonymous_statistics_warning">Opting into HellKat Statistics will allow non-personal data to be submitted to the
+        developers of HellKat to track unique installations across devices. The information submitted includes an unique identifier,
         which does not compromise your privacy or personal data. The data is submitted during each boot.\n\nFor an example of the data that is submitted, tap on Preview Data.</string>
     <string name="enable_reporting_title">Enable reporting</string>
     <string name="preview_data_title">Preview data</string>
@@ -415,7 +415,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="anonymous_learn_more">Learn more</string>
 
     <!-- Anonymous Statistics - Notification -->
-    <string name="anonymous_notification_desc">Enable or Disable CyanogenMod Statistics</string>
+    <string name="anonymous_notification_desc">Enable or Disable HellKat Statistics</string>
 
     <!-- Anonymous Statistics - Preview -->
     <string name="preview_id_title">Unique ID</string>
@@ -494,9 +494,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="changelog_unknown">Unknown</string>
     <string name="changelog_version">Version</string>
 
-    <!-- CM Updater -->
-    <string name="cmupdate_settings_title">CyanogenMod updates</string>
-    <string name="cmupdate_settings_summary">Check for, view or install available updates</string>
+    <!-- CM Updater 
+    <string name="cmupdate_settings_title">HellKat Updates</string>
+    <string name="cmupdate_settings_summary">Check for, view or install available updates</string> -->
 
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">Launch Tools</string>
@@ -617,19 +617,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Font size sample text. This needs to be a very short string, as it is shown in
     multiple font sizes in a limited amount of space. -->
     <string name="font_size_sample">Sample</string>
-
-    <!-- Power menu enable disable -->
-    <string name="power_menu_title">Power menu</string>
-    <string name="power_menu_reboot_title">Reboot menu</string>
-    <string name="power_menu_screenshot_title">Screenshot</string>
-    <string name="power_menu_expanded_desktop">Expanded desktop</string>
-    <string name="expanded_desktop_disabled">Disabled</string>
-    <string name="expanded_desktop_status_bar">Status bar visible</string>
-    <string name="expanded_desktop_no_status_bar">Status bar hidden</string>
-    <string name="power_menu_profiles_title">Profile switcher</string>
-    <string name="power_menu_airplane_title">Airplane mode</string>
-    <string name="power_menu_user_title">User switcher</string>
-    <string name="power_menu_sound_title">Sound panel</string>
 
     <!-- Sms security limit -->
     <string name="sms_security_check_limit_title">SMS message limit</string>
