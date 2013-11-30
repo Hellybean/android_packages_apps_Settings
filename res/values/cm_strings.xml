@@ -486,18 +486,6 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="kill_app_longpress_back">Kill app back button</string>
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long-pressing the back button</string>
 
-    <!-- Change Log strings -->
-    <string name="changelog_title">View changelog</string>
-    <string name="changelog_dialog">Changelog</string>
-    <string name="changelog_loading">Loading changelog...</string>
-    <string name="changelog_error">Unable to load changelog</string>
-    <string name="changelog_unknown">Unknown</string>
-    <string name="changelog_version">Version</string>
-
-    <!-- CM Updater 
-    <string name="cmupdate_settings_title">HellKat Updates</string>
-    <string name="cmupdate_settings_summary">Check for, view or install available updates</string> -->
-
     <!-- Launches Dev Tools -->
     <string name="development_tools_title">Launch Tools</string>
 
