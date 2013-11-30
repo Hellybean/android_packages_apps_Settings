@@ -46,8 +46,24 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
 
     private static final String USE_16BPP_ALPHA_PROP = "persist.sys.use_16bpp_alpha";
 
+    private static final String DISABLE_BOOTANIMATION_PREF = "pref_disable_bootanimation";
+
+    private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
+
+    private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
+
+    private static final String DISABLE_WALLPAPER_PREF = "pref_disable_wallpaperservice";
+
+    private static final String DISABLE_WALLPAPER_PERSIST_PROP = "persist.sys.show_wallpaper";
+
+    private static final String DISABLE_WALLPAPER_DEFAULT = "1";
+
     private ListPreference mPerfProfilePref;
     private CheckBoxPreference mUse16bppAlphaPref;
+
+    private CheckBoxPreference mDisableBootanimPref;
+
+    private CheckBoxPreference mDisableWallpaperPref;
 
     private String[] mPerfProfileEntries;
     private String[] mPerfProfileValues;
@@ -101,6 +117,35 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         String use16bppAlpha = SystemProperties.get(USE_16BPP_ALPHA_PROP, "0");
         mUse16bppAlphaPref.setChecked("1".equals(use16bppAlpha));
 
+        mDisableBootanimPref = (CheckBoxPreference) prefSet
+                .findPreference(DISABLE_BOOTANIMATION_PREF);
+        String disableBootanimation = SystemProperties.get(DISABLE_BOOTANIMATION_PERSIST_PROP,
+                DISABLE_BOOTANIMATION_DEFAULT);
+        mDisableBootanimPref.setChecked("1".equals(disableBootanimation));
+
+        mDisableWallpaperPref = (CheckBoxPreference) prefSet
+                .findPreference(DISABLE_WALLPAPER_PREF);
+        String disableWallpaper = SystemProperties.get(DISABLE_WALLPAPER_PERSIST_PROP,
+                DISABLE_WALLPAPER_DEFAULT);
+        mDisableWallpaperPref.setChecked("0".equals(disableWallpaper));
+
+        /* Display the warning dialog */
+        alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setTitle(R.string.performance_settings_warning_title);
+        alertDialog.setMessage(getResources().getString(R.string.performance_settings_warning));
+        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,
+                getResources().getString(com.android.internal.R.string.ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        return;
+                    }
+                });
+        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            public void onCancel(DialogInterface dialog) {
+                PerformanceSettings.this.finish();
+            }
+        });
+        alertDialog.show();
     }
 
     @Override
@@ -128,6 +173,12 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         if (preference == mUse16bppAlphaPref) {
             SystemProperties.set(USE_16BPP_ALPHA_PROP,
                     mUse16bppAlphaPref.isChecked() ? "1" : "0");
+        } else if (preference == mDisableBootanimPref) {
+            SystemProperties.set(DISABLE_BOOTANIMATION_PERSIST_PROP,
+                    mDisableBootanimPref.isChecked() ? "1" : "0");
+        } else if (preference == mDisableWallpaperPref) {
+            SystemProperties.set(DISABLE_WALLPAPER_PERSIST_PROP,
+                    mDisableWallpaperPref.isChecked() ? "0" : "1");
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -354,4 +354,9 @@
     <string name="pref_gpu_title">GPU Acceleration</string>
     <string name="pref_gpu_summary">Enable hardware acceleration where the GPU controls the UI instead of the CPU</string>
 
+    <!-- Disable Boot & Wallpaper -->
+    <string name="pref_disable_bootanimation_title">Disable boot animation</string>
+    <string name="pref_disable_wallpaperservice_title">Disable wallpaper service</string>
+    <string name="pref_disable_wallpaperservice_summary">Disable wallpaper to reduce SystemUI memory usage (requires reboot)</string>
+
 </resources>

@@ -45,4 +45,12 @@
         android:title="@string/pref_use_16bpp_alpha_title"
         android:summary="@string/pref_use_16bpp_alpha_summary" />
 
+    <CheckBoxPreference
+        android:key="pref_disable_bootanimation"
+        android:title="@string/pref_disable_bootanimation_title" />
+
+    <CheckBoxPreference
+        android:key="pref_disable_wallpaperservice"
+        android:title="@string/pref_disable_wallpaperservice_title"
+        android:summary="@string/pref_disable_wallpaperservice_summary" />
 </PreferenceScreen>
