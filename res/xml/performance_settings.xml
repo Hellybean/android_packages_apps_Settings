@@ -53,4 +53,10 @@
         android:key="pref_disable_wallpaperservice"
         android:title="@string/pref_disable_wallpaperservice_title"
         android:summary="@string/pref_disable_wallpaperservice_summary" />
+
+    <CheckBoxPreference
+        android:key="pref_is_high_end_gfx"
+        android:title="@string/pref_is_high_end_gfx_title"
+        android:summary="@string/pref_is_high_end_gfx_summary" />
+
 </PreferenceScreen>

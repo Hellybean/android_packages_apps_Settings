@@ -58,12 +58,18 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
 
     private static final String DISABLE_WALLPAPER_DEFAULT = "1";
 
+    private static final String HIGH_END_GFX_PREF = "pref_is_high_end_gfx";
+
+    private static final String HIGH_END_GFX_PERSIST_PROP = "persist.sys.highendgfx";
+
     private ListPreference mPerfProfilePref;
     private CheckBoxPreference mUse16bppAlphaPref;
 
     private CheckBoxPreference mDisableBootanimPref;
 
     private CheckBoxPreference mDisableWallpaperPref;
+
+    private CheckBoxPreference mHighEndGfxPref;
 
     private String[] mPerfProfileEntries;
     private String[] mPerfProfileValues;
@@ -129,6 +135,12 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
                 DISABLE_WALLPAPER_DEFAULT);
         mDisableWallpaperPref.setChecked("0".equals(disableWallpaper));
 
+        mHighEndGfxPref = (CheckBoxPreference) prefSet
+                .findPreference(HIGH_END_GFX_PREF);
+        String highEndGfx = SystemProperties.get(HIGH_END_GFX_PERSIST_PROP,
+                android.app.ActivityManager.isHighEndGfx() ? "1" : "0");
+        mHighEndGfxPref.setChecked("1".equals(highEndGfx));
+
         /* Display the warning dialog */
         alertDialog = new AlertDialog.Builder(getActivity()).create();
         alertDialog.setTitle(R.string.performance_settings_warning_title);
@@ -179,6 +191,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         } else if (preference == mDisableWallpaperPref) {
             SystemProperties.set(DISABLE_WALLPAPER_PERSIST_PROP,
                     mDisableWallpaperPref.isChecked() ? "0" : "1");
+        } else if (preference == mHighEndGfxPref) {
+            SystemProperties.set(HIGH_END_GFX_PERSIST_PROP,
+                    mHighEndGfxPref.isChecked() ? "1" : "0");
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
