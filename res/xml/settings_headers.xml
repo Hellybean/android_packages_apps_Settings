@@ -98,15 +98,6 @@
         android:icon="@drawable/ic_settings_system"
         android:fragment="com.android.settings.cyanogenmod.SystemUiSettings"
         android:title="@string/system_settings_title" />
-		
-    <header android:title="@string/header_category_rom_settings" />
-
-    <!--User Interface -->
-    <header
-        android:id="@+id/interface_settings"
-        android:icon="@drawable/ic_settings_interface"
-        android:fragment="com.android.settings.hellkat.InterfaceSettings"
-        android:title="@string/interface_settings_title" />
 
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
