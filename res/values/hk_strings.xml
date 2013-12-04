@@ -33,7 +33,7 @@
     <string name="header_category_rom_settings">Advanced settings</string>
 
     <!-- HellKat settings screens -->
-    <string name="interface_settings_title">Interface</string>
+    <string name="interface_settings_title">HellKat Interface</string>
 
     <!-- Color Picker -->
     <string name="dialog_color_picker">Color Picker</string>
