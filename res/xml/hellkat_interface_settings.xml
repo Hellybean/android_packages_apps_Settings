@@ -26,7 +26,7 @@
 
     <PreferenceScreen
         android:key="notification_drawer"
-        android:fragment="com.android.settings.crdroid.NotificationDrawer"
+        android:fragment="com.android.settings.hellkat.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
 </PreferenceScreen>
