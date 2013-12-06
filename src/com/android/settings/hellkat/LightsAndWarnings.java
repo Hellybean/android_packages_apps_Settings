@@ -42,8 +42,10 @@ public class LightsAndWarnings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";  
+    private static final String KEY_SCREEN_ON_NOTIFICATION_LED = "screen_on_notification_led";  
 
     private ListPreference mLowBatteryWarning; 
+    private CheckBoxPreference mScreenOnNotificationLed;    
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,13 +59,32 @@ public class LightsAndWarnings extends SettingsPreferenceFragment implements
                                     Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
         mLowBatteryWarning.setValue(String.valueOf(lowBatteryWarning));
         mLowBatteryWarning.setSummary(mLowBatteryWarning.getEntry());
-        mLowBatteryWarning.setOnPreferenceChangeListener(this);   
+        mLowBatteryWarning.setOnPreferenceChangeListener(this);
+
+        // Notification light when screen is on
+        int statusScreenOnNotificationLed = Settings.System.getInt(getContentResolver(),
+                Settings.System.SCREEN_ON_NOTIFICATION_LED, 1);
+        mScreenOnNotificationLed = (CheckBoxPreference) findPreference(KEY_SCREEN_ON_NOTIFICATION_LED);
+        mScreenOnNotificationLed.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SCREEN_ON_NOTIFICATION_LED, 0) == 1);    
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        if (preference == mScreenOnNotificationLed) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SCREEN_ON_NOTIFICATION_LED,
+                    mScreenOnNotificationLed.isChecked() ? 1 : 0);
+         return true;
+        }
+
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

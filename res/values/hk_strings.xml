@@ -118,4 +118,9 @@
     <string name="misc_short">Misc</string>
     <string name="alt_resolver">Use Alt Default App Grid</string>
     <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
+
+    <!-- Screen-On Notification Light -->
+    <string name="screen_on_notification_led_title">Screen-On Notification Light</string>
+    <string name="screen_on_notification_led_summary">Enable Notification Light even when screen is on</string>
+
 </resources>
