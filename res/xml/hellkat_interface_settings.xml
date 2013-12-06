@@ -29,4 +29,9 @@
         android:fragment="com.android.settings.hellkat.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
 
+    <PreferenceScreen
+        android:key="lights_and_warnings"
+        android:fragment="com.android.settings.hellkat.LightsAndWarnings"
+        android:title="@string/lights_and_warnings_title" />
+
 </PreferenceScreen>
