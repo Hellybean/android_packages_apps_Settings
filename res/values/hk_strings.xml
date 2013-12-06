@@ -109,5 +109,13 @@
     <string name="low_battery_warning_policy_popup">Pop-up dialog only</string>
     <string name="low_battery_warning_policy_notif">Notification only</string>
     <string name="low_battery_warning_policy_sound">Sound only</string>
-    <string name="low_battery_warning_policy_disabled">Disabled</string>	
+    <string name="low_battery_warning_policy_disabled">Disabled</string>
+
+    <!-- Alternate default app picker -->
+    <string name="general_settings_title">General settings</string>
+    <string name="general_settings_style_title">Style</string>
+    <string name="display_short">Display</string>
+    <string name="misc_short">Misc</string>
+    <string name="alt_resolver">Use Alt Default App Grid</string>
+    <string name="alt_resolver_summary">Use Alternate Default App Picker</string>
 </resources>
