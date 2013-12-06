@@ -22,7 +22,7 @@
 
     <PreferenceScreen
         android:key="screen_and animations"
-        android:fragment="com.android.settings.beanstalk.ScreenAndAnimations"
+        android:fragment="com.android.settings.hellkat.ScreenAndAnimations"
         android:title="@string/screen_and_animations_title" />
 
     <PreferenceScreen
