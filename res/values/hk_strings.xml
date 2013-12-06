@@ -28,6 +28,9 @@
     <!-- General strings -->
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+    <string name="default_string">Default</string>
 
     <!-- Settings main menu category heading. Rom (Launcher, Themes, System). [CHAR LIMIT=40] -->
     <string name="header_category_rom_settings">Advanced settings</string>
@@ -47,7 +50,7 @@
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_style_title">Style</string>
+    <string name="status_bar_style_title">Status bar options</string>
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
