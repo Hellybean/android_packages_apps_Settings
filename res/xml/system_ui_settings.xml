@@ -35,28 +35,35 @@
         android:title="@string/notification_drawer_title" />
 
     <ListPreference
-            android:key="expanded_desktop"
-            android:title="@string/power_menu_expanded_desktop"
-            android:entries="@array/expanded_desktop_entries"
-            android:entryValues="@array/expanded_desktop_values"
-            android:persistent="false" />
+        android:key="expanded_desktop"
+        android:title="@string/power_menu_expanded_desktop"
+        android:entries="@array/expanded_desktop_entries"
+        android:entryValues="@array/expanded_desktop_values"
+        android:persistent="false" />
 
     <CheckBoxPreference
-            android:key="expanded_desktop_no_navbar"
-            android:title="@string/power_menu_expanded_desktop"
-            android:persistent="true" />
+        android:key="expanded_desktop_no_navbar"
+        android:title="@string/power_menu_expanded_desktop"
+        android:persistent="true" />
 
     <PreferenceCategory
         android:key="navigation_bar"
         android:title="@string/navigation_bar_category" >
 
+        <CheckBoxPreference
+            android:key="show_navigation_bar"
+            android:title="@string/navigation_bar_category"
+            android:persistent="true" />
+
         <PreferenceScreen
             android:key="navigation_bar"
+            android:dependency="show_navigation_bar"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
             android:title="@string/navigation_bar_title" />
 
         <PreferenceScreen
             android:key="navigation_ring"
+            android:dependency="show_navigation_bar"
             android:fragment="com.android.settings.cyanogenmod.NavRing"
             android:title="@string/navigation_ring_title" />
 
