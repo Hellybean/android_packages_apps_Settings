@@ -32,6 +32,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
 
     private ListPreference mCollapseOnDismiss;
+    private Preference mNotificationPanelColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,9 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         mCollapseOnDismiss.setValue(String.valueOf(collapseBehaviour));
         mCollapseOnDismiss.setOnPreferenceChangeListener(this);
         updateCollapseBehaviourSummary(collapseBehaviour);
+
+        mNotificationPanelColor =
+                (Preference) findPreference("status_bar_notification_color");
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -61,6 +65,30 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
 
         return false;
     }
+
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+
+       if (preference == mNotificationPanelColor) {
+            ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
+                    mNotificationPanelColorListener, Settings.System.getInt(getContentResolver(),
+                    Settings.System.NOTIFICATION_PANEL_COLOR, 0xff000000));
+            cp.setDefaultColor(0xff000000);
+            cp.show();
+            return true;
+        }
+        return false;
+    }
+
+    ColorPickerDialog.OnColorChangedListener mNotificationPanelColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.NOTIFICATION_PANEL_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
 
     private void updateCollapseBehaviourSummary(int setting) {
         String[] summaries = getResources().getStringArray(

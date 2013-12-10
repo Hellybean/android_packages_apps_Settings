@@ -41,6 +41,7 @@ import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.cyanogenmod.ColorPickerDialog;
 
 public class QuickSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -62,6 +63,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mGeneralSettings;
     private PreferenceCategory mStaticTiles;
     private PreferenceCategory mDynamicTiles;
+    private Preference mTileColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -146,6 +148,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                 mDynamicTiles.removePreference(pref);
             }
         }
+        mTileColor = findPreference("tile_color");
     }
 
     @Override
@@ -207,6 +210,20 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        boolean value;
+
+        if (preference == mTileColor) {
+            ColorPickerDialog tcp = new ColorPickerDialog(getActivity(),
+                    mTileColorListener, Settings.System.getInt(getContentResolver(),
+                    Settings.System.SETTINGS_TILE_COLOR, 0xFF161616));
+            tcp.setDefaultColor(0xFF161616);
+            tcp.show();
+            return true;
+        }
+        return false;
+    }
+
     private void updateSummary(String val, MultiSelectListPreference pref, int defSummary) {
         // Update summary message with current values
         final String[] values = parseStoredValue(val);
@@ -248,4 +265,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             return val.toString().split(SEPARATOR);
         }
     }
+
+
+    ColorPickerDialog.OnColorChangedListener mTileColorListener =
+        new ColorPickerDialog.OnColorChangedListener() {
+            public void colorChanged(int color) {
+                Settings.System.putInt(getContentResolver(),
+                        Settings.System.SETTINGS_TILE_COLOR, color);
+            }
+            public void colorUpdate(int color) {
+            }
+    };
 }
