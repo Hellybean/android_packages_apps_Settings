@@ -78,4 +78,8 @@
 
     </PreferenceCategory>
 
+    <PreferenceScreen
+        android:key="user_interface"
+        android:fragment="com.android.settings.cyanogenmod.UserInterface"
+        android:title="@string/user_interface_title" />
 </PreferenceScreen>
