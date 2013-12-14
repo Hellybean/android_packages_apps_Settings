@@ -40,9 +40,9 @@ import android.widget.EditText;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
-import com.android.settings.util.CMDProcessor;
-import com.android.settings.util.CMDProcessor.CommandResult;
-import com.android.settings.util.Helpers;
+import com.android.settings.hellkat.util.CMDProcessor;
+import com.android.settings.hellkat.util.CMDProcessor.CommandResult;
+import com.android.settings.hellkat.util.Helpers;
 
 public class DensityChanger extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
