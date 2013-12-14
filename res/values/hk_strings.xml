@@ -143,8 +143,8 @@
 
     <!-- Init.d -->
     <string name="header_summary_init_d">@null</string>
-    <string name="init_d_title">Init.d</string>
-    <string name="app_name">Init.d Conf</string>
+    <string name="init_d_title">Init.d Tweaks</string>
+    <string name="app_name">Init.d Tweaker</string>
     <string name="pt_general">General</string>
     <string name="pt_zipalign_apks">Zipalign apps</string>
     <string name="ps_zipalign_apks">Zipalign any unaligned apps on each boot</string>
@@ -209,7 +209,7 @@
     <string name="dpi">DPI</string>
     <string name="su_dialog_error_title">Warning</string>
     <string name="su_dialog_error_message">An error occurred.\n\nPlease check for root access. To activate go into superuser settings and enable root access.</string>
-    <string name="lcd_density_title">LCD density</string>
+    <string name="lcd_density_title">LCD Density Changer</string>
     <string name="lcd_density_summary">unknown</string>
     <string name="current_lcd_density">"Current LCD Density: "</string>
     <string name="lcd_density_wizard">LCD Density Wizard</string>
