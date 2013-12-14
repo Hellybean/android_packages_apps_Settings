@@ -8,15 +8,14 @@
     <PreferenceScreen
         android:id="@+id/initD"
         android:fragment="com.android.settings.InitD"
-        android:icon="@drawable/ic_rom_control_init"
         android:title="@string/init_d_title"
-        android:summary="@string/header_summary_init_d" /> 
+        android:summary="@string/header_summary_init_d" />
 
     <PreferenceScreen
 	android:key="lcd_density_setup"
         android:fragment="com.android.settings.hellkat.fragments.DensityChanger"
         android:title="@string/lcd_density_title"
-        android:summary="@string/lcd_density_summary" />  
+        android:summary="@string/lcd_density_summary" />
 
     <PreferenceScreen
         android:key="status_bar"
@@ -31,7 +30,7 @@
     <PreferenceScreen
         android:key="lights_and_warnings"
         android:fragment="com.android.settings.hellkat.LightsAndWarnings"
-        android:title="@string/lights_and_warnings_title" /> 
+        android:title="@string/lights_and_warnings_title" />
 
     <PreferenceScreen
         android:key="screen_and animations"
