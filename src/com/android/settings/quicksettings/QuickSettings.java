@@ -221,7 +221,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             tcp.show();
             return true;
         }
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updateSummary(String val, MultiSelectListPreference pref, int defSummary) {
