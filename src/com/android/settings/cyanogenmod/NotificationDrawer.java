@@ -78,7 +78,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             cp.show();
             return true;
         }
-        return false;
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     ColorPickerDialog.OnColorChangedListener mNotificationPanelColorListener =
