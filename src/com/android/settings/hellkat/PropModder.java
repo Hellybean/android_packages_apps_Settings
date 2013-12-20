@@ -54,8 +54,8 @@ import java.io.FileWriter;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.util.CMDProcessor;
-import com.android.settings.util.Helpers;
+import com.android.settings.hellkat.util.CMDProcessor;
+import com.android.settings.hellkat.util.Helpers;
 
 public class PropModder extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
