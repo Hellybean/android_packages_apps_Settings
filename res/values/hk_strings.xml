@@ -284,6 +284,5 @@
 
     <!-- Screen Recorder Power Menu Title -->
     <string name="power_menu_screenrecord_title">Screen record</string>
-    <string name="power_menu_screenrecord_summary">When unlocked, include option in the power menu for screen recording feature</string>
 
 </resources>
