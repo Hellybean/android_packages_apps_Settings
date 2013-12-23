@@ -449,4 +449,11 @@
     <!-- Label for are-halo-notifications-allowed checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_halo_label_black">Blacklist from HALO</string>
     <string name="app_halo_label_white">Whitelist from HALO</string>  
+
+    <!-- MediaScanner behavior on boot -->
+    <string name="media_scanner_on_boot_title">MediaScanner behavior on boot</string>
+    <string name="media_scanner_on_boot_enabled">Scan media</string>
+    <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
+    <string name="media_scanner_on_boot_disabled">Do not scan media</string>
+
 </resources>
