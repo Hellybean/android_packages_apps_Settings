@@ -373,4 +373,8 @@
     <string name="large_recent_thumbs_summary">Show larger recent application thumbnails</string>
     <string name="dialog_indicator_color_title">Select color</string>
 
+    <!-- High End GFX -->
+    <string name="pref_is_high_end_gfx_title">High end gfx</string>
+    <string name="pref_is_high_end_gfx_summary">Force the isHighEndGfx property on or off (requires reboot)</string>
+
 </resources>
