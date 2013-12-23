@@ -46,4 +46,9 @@
         android:fragment="com.android.settings.hellkat.GeneralSettings"
         android:title="@string/general_settings_title" />
 
+    <PreferenceScreen
+        android:key="user_interface"
+        android:fragment="com.android.settings.hellkat.UserInterface"
+        android:title="@string/user_interface_title" />
+
 </PreferenceScreen>

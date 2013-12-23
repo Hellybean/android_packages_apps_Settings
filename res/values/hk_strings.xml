@@ -360,7 +360,7 @@
     <string name="pref_disable_wallpaperservice_summary">Disable wallpaper to reduce SystemUI memory usage (requires reboot)</string>
 
     <!-- Dual Panel & Colors -->
-    <string name="user_interface_title">User interface</string>
+    <string name="user_interface_title">Tablet Settings</string>
     <string name="dual_pane_prefs_title">Dual pane preferences</string>
     <string name="dual_pane_prefs_summary">Choose when to use dual pane preferences</string>
     <string name="dual_pane_prefs_on">Always</string>

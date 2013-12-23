@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.hellkat;
 
 import android.R;
 import android.os.Bundle;
@@ -43,7 +43,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.os.SystemClock;
 import android.util.StateSet;
-
 
 public class ColorPickerDialog extends Dialog {
 

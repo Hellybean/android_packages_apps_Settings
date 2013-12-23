@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.cyanogenmod;
+package com.android.settings.hellkat;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -25,10 +25,12 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.view.WindowManagerGlobal;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.hellkat.ColorPickerDialog;
 
 public class UserInterface extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
