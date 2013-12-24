@@ -77,7 +77,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_ENABLE_WIDGETS = "keyguard_enable_widgets";
     private static final String KEY_INTERFACE_SETTINGS = "lock_screen_settings";
     private static final String KEY_TARGET_SETTINGS = "lockscreen_targets";
-    private static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "quick_unlock_control";
     private static final String LOCK_NUMPAD_RANDOM = "lock_numpad_random";
     private static final String LOCK_BEFORE_UNLOCK = "lock_before_unlock";
     private static final String KEY_SEE_TRHOUGH = "see_through";
