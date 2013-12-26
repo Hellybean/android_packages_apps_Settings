@@ -394,12 +394,10 @@ public class SecuritySettings extends RestrictedSettingsFragment
             mKeyStore = KeyStore.getInstance(); // needs to be initialized for onResume()
             if (!um.hasUserRestriction(UserManager.DISALLOW_CONFIG_CREDENTIALS)) {
                 Preference credentialStorageType = root.findPreference(KEY_CREDENTIAL_STORAGE_TYPE);
-
                 final int storageSummaryRes =
                     mKeyStore.isHardwareBacked() ? R.string.credential_storage_type_hardware
                             : R.string.credential_storage_type_software;
                 credentialStorageType.setSummary(storageSummaryRes);
-
             } else {
                 removePreference(KEY_CREDENTIALS_MANAGER);
             }
