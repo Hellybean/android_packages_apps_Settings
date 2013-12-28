@@ -460,4 +460,11 @@
     <string name="media_scanner_on_boot_ask">Ask to scan (notification)</string>
     <string name="media_scanner_on_boot_disabled">Do not scan media</string>
 
+    <!-- Network usage stats -->
+    <string name="status_bar_network_cat">Network traffic meter</string>
+    <string name="status_bar_network_header">Network traffic meter</string>
+    <string name="status_bar_network_title">Network traffic</string>
+    <string name="status_bar_show_network_stats_title">Show network speeds</string>
+    <string name="status_bar_network_stats_update_title">Update frequency</string>
+
 </resources>
