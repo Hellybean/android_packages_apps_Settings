@@ -114,22 +114,6 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mCollapseOnDismiss) {
-            int value = Integer.valueOf((String) objValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
-            updateCollapseBehaviourSummary(value);
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        boolean value;
-
        if (preference == mNotificationPanelColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
                     mNotificationPanelColorListener, Settings.System.getInt(getContentResolver(),
@@ -151,6 +135,18 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             }
     };
 
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mCollapseOnDismiss) {
+            int value = Integer.valueOf((String) objValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_COLLAPSE_ON_DISMISS, value);
+            updateCollapseBehaviourSummary(value);
+            return true;
+        }
+
+        return false;
+    }
     private void updateCollapseBehaviourSummary(int setting) {
         String[] summaries = getResources().getStringArray(
                 R.array.notification_drawer_collapse_on_dismiss_summaries);
