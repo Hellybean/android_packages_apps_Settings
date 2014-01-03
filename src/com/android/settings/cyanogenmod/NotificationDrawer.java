@@ -111,10 +111,7 @@ public class NotificationDrawer extends SettingsPreferenceFragment implements
             });
 
             alert.show();
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-       if (preference == mNotificationPanelColor) {
+        } else if (preference == mNotificationPanelColor) {
             ColorPickerDialog cp = new ColorPickerDialog(getActivity(),
                     mNotificationPanelColorListener, Settings.System.getInt(getContentResolver(),
                     Settings.System.NOTIFICATION_PANEL_COLOR, 0xff000000));
