@@ -140,8 +140,6 @@
     <string name="io_scheds_title">Escalonador de I/O</string>
     <string name="io_sched_title">Escalonador I/O</string>
     <string name="memory_management_title">Gerenciamento de memória</string>
-    <string name="pref_zram_title">zRam</string>
-    <string name="pref_zram_summary">Comprime a memória para maior capacidade virtual (requer reinicialização)</string>
     <string name="pref_ksm_title">Kernel samepage merging</string>
     <string name="pref_ksm_summary">KSM reduz requisitos de memória fisica e melhora o desempenho</string>
     <string name="pref_purgeable_assets_title">Permitir liberação de recursos</string>
@@ -686,4 +684,14 @@ controle adicionais. \'Remover\' apaga a linha selecionada.
     <string name="volume_overlay_expanded">Expandido</string>
     <string name="volume_overlay_none">Nenhum</string>
     <string name="status_bar_double_tap_to_sleep_title">Toque duplo para dormir</string>
+    <string name="status_bar_show_clock_title">Mostrar relógio</string>
+    <string name="status_bar_toggle_brightness">Controle de brilho</string>
+    <string name="status_bar_toggle_brightness_summary">Permite ajustar o brilho deslizando através da barra de status</string>
+    <string name="status_bar_toggle_info">Brilho automático está habilitado</string>
+    <string name="status_bar_signal_text_title">Alternar exibição de sinal</string>
+    <string name="status_bar_notif_count_title">Mostrar contador de notificação</string>
+    <string name="status_bar_notif_count_summary">Mostrar o número de notificações pendentes na barra de status</string>
+    <string name="lockscreen_enable_camera_title">Widget da câmera</string>
+    <string name="status_bar_signal_style_icon">Ícone</string>
+    <string name="status_bar_signal_style_text">Texto</string>
 </resources>
