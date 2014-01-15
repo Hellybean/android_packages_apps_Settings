@@ -32,6 +32,9 @@
             android:title="@*android:string/bugreport_title"
             android:dialogTitle="@*android:string/bugreport_title" />
 
+    <Preference android:key="restart_systemui"
+            android:title="@string/restart_systemui" />
+
     <ListPreference
         android:key="media_scanner_on_boot"
         android:title="@string/media_scanner_on_boot_title"
