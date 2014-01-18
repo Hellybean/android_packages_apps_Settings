@@ -59,7 +59,8 @@
         android:icon="@drawable/empty_icon" />
 
     <!-- Additional HellKat controls -->
-    <header android:title="@string/header_category_rom_settings" />
+    <header android:id="@+id/interface_section"
+        android:title="@string/header_category_interface" />
 
     <!-- Interface -->
     <header
