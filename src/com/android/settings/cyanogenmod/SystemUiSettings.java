@@ -40,14 +40,12 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
-    private static final String KEY_SHOW_NAVBAR = "show_navigation_bar";
 
     // Enable/disable nav bar	
     private static final String ENABLE_NAVIGATION_BAR = "enable_nav_bar";
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
-    private CheckBoxPreference mShowNavbarPref;
  
     // Enable/disable nav bar
     private CheckBoxPreference mEnableNavigationBar;
@@ -84,13 +82,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
                 mExpandedDesktopNoNavbarPref.setChecked(expandedDesktopValue > 0);
                 prefScreen.removePreference(mExpandedDesktopPref);
             }
-
-            mShowNavbarPref =
-                    (CheckBoxPreference) findPreference(KEY_SHOW_NAVBAR);
-
-            mShowNavbarPref.setOnPreferenceChangeListener(this);
-            mShowNavbarPref.setChecked(hasNavBar);
-
         } catch (RemoteException e) {
             Log.e(TAG, "Error getting navigation bar status");
         }
@@ -120,11 +111,6 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
             return true;
-        } else if (preference == mShowNavbarPref) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getContentResolver(), Settings.System.SHOW_NAVIGATION,
-                    value ? 1 : 0);
-
 	// Enable/disbale nav bar (used in custom nav bar dimensions)
 	} else if (preference == mEnableNavigationBar) {
             Settings.System.putInt(getActivity().getContentResolver(),
