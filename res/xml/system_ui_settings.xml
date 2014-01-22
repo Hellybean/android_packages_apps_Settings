@@ -77,15 +77,15 @@
 
         <PreferenceScreen
             android:key="navigation_bar"
-            android:dependency="show_navigation_bar"
             android:fragment="com.android.settings.cyanogenmod.NavBar"
-            android:title="@string/navigation_bar_title" />
+            android:title="@string/navigation_bar_title" 
+            android:dependency="enable_nav_bar" />
 
         <PreferenceScreen
             android:key="navigation_ring"
-            android:dependency="show_navigation_bar"
             android:fragment="com.android.settings.cyanogenmod.NavRing"
-            android:title="@string/navigation_ring_title" />
+            android:title="@string/navigation_ring_title" 
+	    android:dependency="enable_nav_bar" />
 
     </PreferenceCategory>
 
