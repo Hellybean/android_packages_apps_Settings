@@ -177,7 +177,9 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             mBatteryBarThickness.setSummary(mBatteryBarThickness.getEntries()[index]);
             return true;
         }
-
+        return false;
+    }
+	
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         boolean value;
 		if (preference == mBatteryBarChargingAnimation) {

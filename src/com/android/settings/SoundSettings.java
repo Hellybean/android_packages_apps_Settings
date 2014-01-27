@@ -87,8 +87,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
     private static final String KEY_QUIET_HOURS = "quiet_hours";
     private static final String KEY_CONVERT_SOUND_TO_VIBRATE =
             Settings.System.NOTIFICATION_CONVERT_SOUND_TO_VIBRATION;
-    private static final String KEY_VIBRATE_DURING_CALLS =
-            Settings.System.NOTIFICATION_VIBRATE_DURING_ALERTS_DISABLED;
     private static final String KEY_VOLUME_ADJUST_SOUNDS = "volume_adjust_sounds_enabled";
     private static final String KEY_POWER_NOTIFICATIONS = "power_notifications";
     private static final String KEY_POWER_NOTIFICATIONS_VIBRATE = "power_notifications_vibrate";
@@ -219,7 +217,6 @@ public class SoundSettings extends SettingsPreferenceFragment implements
             removePreference(KEY_VIBRATE);
             removePreference(KEY_HAPTIC_FEEDBACK);
             removePreference(KEY_CONVERT_SOUND_TO_VIBRATE);
-            removePreference(KEY_VIBRATE_DURING_CALLS);
         }
 
         if (TelephonyManager.PHONE_TYPE_CDMA == activePhoneType) {
