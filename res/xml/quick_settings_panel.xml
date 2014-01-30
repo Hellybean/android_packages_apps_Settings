@@ -43,6 +43,11 @@
             android:defaultValue="false"
             android:summary="@string/summary_qs_hide_text" />
 
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+             android:key="qs_floating_window"
+             android:title="@string/title_floating_window"
+             android:summary="@string/summary_floating_window" />
+             
     </PreferenceCategory>
 
     <PreferenceCategory

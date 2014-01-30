@@ -531,4 +531,8 @@
     <string name="trigger_top_summary">Adjust the vertical postion of the trigger area</string>
     <string name="trigger_bottom_title">Trigger height</string>
     <string name="trigger_bottom_summary">Adjust the height of the trigger area</string>
+
+    <!-- Quicksettings panel floating window -->
+     <string name="title_floating_window">Floating window</string>
+     <string name="summary_floating_window">Open Quick Settings tiles in floating window</string>   
 </resources>
