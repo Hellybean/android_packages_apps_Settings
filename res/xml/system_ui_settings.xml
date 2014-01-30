@@ -90,12 +90,6 @@
     </PreferenceCategory>
 
     <PreferenceScreen
-        android:id="@+id/animations"
-        android:title="@string/title_animation_controls"
-        android:summary="@string/header_summary_animation"
-        android:fragment="com.android.settings.cyanogenmod.fragments.AnimationControls" />
-
-    <PreferenceScreen
         android:key="app_sidebar"
         android:fragment="com.android.settings.cyanogenmod.AppSidebar"
         android:title="@string/app_sidebar_title"
