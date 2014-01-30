@@ -42,17 +42,13 @@
             android:title="@string/title_qs_hide_text"
             android:defaultValue="false"
             android:summary="@string/summary_qs_hide_text" />
-
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-             android:key="qs_floating_window"
-             android:title="@string/title_floating_window"
-             android:summary="@string/summary_floating_window" />
             
 		<com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
              android:key="quick_settings_tiles_flip"
              android:title="@string/flip_qs_tiles_title"
              android:summary="@string/flip_qs_tiles_summary"
              android:defaultValue="true" /> 
+
     </PreferenceCategory>
 
     <PreferenceCategory
