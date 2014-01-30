@@ -37,6 +37,12 @@
             android:key="tile_color"
             android:title="@string/tile_color_title" />
 
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="qs_hide_text"
+            android:title="@string/title_qs_hide_text"
+            android:defaultValue="false"
+            android:summary="@string/summary_qs_hide_text" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
