@@ -234,12 +234,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.EXPANDED_SCREENTIMEOUT_MODE, value);
             mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
             return true;
-		} else if (preference == mTilesPerRow) {
+	} else if (preference == mTilesPerRow) {
             int value = Integer.valueOf((String) newValue);
             int index = mTilesPerRow.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QUICK_TILES_PER_ROW, value);
             mTilesPerRow.setSummary(mTilesPerRow.getEntries()[index]);
-			Helpers.restartSystemUI();
+            Helpers.restartSystemUI();
             return true;
         }
         return false;
