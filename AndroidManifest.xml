@@ -1960,7 +1960,7 @@
         </activity>
         
 		<!-- Telo -->
-        <activity android:name=".telokang.teloradio.TeloRadioSettings"
+        <activity android:name=".hellkat.teloradio.TeloRadioSettings"
             android:label="@string/telo_radio_settings_title"
             android:launchMode="singleTask" 
             android:process="com.android.phone">
@@ -1971,7 +1971,7 @@
             </intent-filter>
         </activity>
         
-        <receiver android:name=".telokang.teloradio.TeloRadioBoot">
+        <receiver android:name=".hellkat.teloradio.TeloRadioBoot">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.HOME" />
