@@ -36,7 +36,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
-
+import com.android.settings.util.Helpers;
 import com.android.internal.util.cm.QSConstants;
 import com.android.internal.util.cm.QSUtils;
 import com.android.settings.R;
@@ -196,6 +196,13 @@ public class QuickSettings extends SettingsPreferenceFragment implements
                     Settings.System.QUICK_TILES_PER_ROW_DUPLICATE_LANDSCAPE,
                     ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
+		} else if (preference == mTileColor) {
+            ColorPickerDialog tcp = new ColorPickerDialog(getActivity(),
+            mTileColorListener, Settings.System.getInt(getContentResolver(),
+            Settings.System.SETTINGS_TILE_COLOR, 0xFF161616));
+            tcp.setDefaultColor(0xFF161616);
+            tcp.show();
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -227,28 +234,15 @@ public class QuickSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(resolver, Settings.System.EXPANDED_SCREENTIMEOUT_MODE, value);
             mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntries()[index]);
             return true;
-	} else if (preference == mTilesPerRow) {
+		} else if (preference == mTilesPerRow) {
             int value = Integer.valueOf((String) newValue);
             int index = mTilesPerRow.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.QUICK_TILES_PER_ROW, value);
             mTilesPerRow.setSummary(mTilesPerRow.getEntries()[index]);
+			Helpers.restartSystemUI();
             return true;
         }
         return false;
-    }
-
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        boolean value;
-
-        if (preference == mTileColor) {
-            ColorPickerDialog tcp = new ColorPickerDialog(getActivity(),
-                    mTileColorListener, Settings.System.getInt(getContentResolver(),
-                    Settings.System.SETTINGS_TILE_COLOR, 0xFF161616));
-            tcp.setDefaultColor(0xFF161616);
-            tcp.show();
-            return true;
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     private void updateSummary(String val, MultiSelectListPreference pref, int defSummary) {
