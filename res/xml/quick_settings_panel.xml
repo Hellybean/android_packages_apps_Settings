@@ -42,6 +42,17 @@
              android:title="@string/flip_qs_tiles_title"
              android:summary="@string/flip_qs_tiles_summary"
              android:defaultValue="true" /> 
+
+	<ListPreference
+            android:key="tiles_per_row"
+            android:entries="@array/tiles_per_row_entries"
+            android:entryValues="@array/tiles_per_row_values"
+            android:title="@string/tiles_per_row_title" />
+
+        <CheckBoxPreference
+            android:key="tiles_per_row_duplicate_landscape"
+            android:title="@string/tiles_per_row_duplicate_landscape_title"
+            android:summary="@string/tiles_per_row_duplicate_landscape_summary" />
     </PreferenceCategory>
 
     <PreferenceCategory
