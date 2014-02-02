@@ -561,13 +561,11 @@
     <string name="telo_radio_enable_title">Enable manager</string>
     <string name="telo_radio_enable_summary_on">Manager enabled connections.</string>
     <string name="telo_radio_enable_summary_off">Manager connections disabled.</string>
-
     <string name="telo_radio_options_category">Configuration Options</string>
     <string name="telo_radio_lte_title">Use LTE</string>
     <string name="telo_radio_lte_summary">Select this option if you use LTE (4G).</string>
     <string name="telo_radio_2g_wifi_title">2G with Wi-Fi</string>
     <string name="telo_radio_2g_wifi_title_summary">When connected to a Wi-Fi network to pass data to 2G.</string>
-    
     <string name="telo_radio_2g_screenoff_category">Options with the screen off </string>
     <string name="telo_radio_2g_screenoff_title">2G with screen off</string>
     <string name="telo_radio_2g_screenoff_summary">The device will switch to 2G when the screen is off after a while.</string>
@@ -579,7 +577,6 @@
     <string name="telo_radio_2g_20min">20 minutes</string>
     <string name="telo_radio_go_3g_unlock_title">3G to unlock</string>
     <string name="telo_radio_go_3g_unlock_summary">He switched to 3G to unlock the device, if this option is selected you switched to 3G when you turn the device screen.</string>
-    
     <string name="telo_radio_info_category">Information TeloRadio</string>    
     <string name="telo_radio_info_title">About the Connection Manager</string>
     <string name="telo_radio_info_summary">The connection manager TeloRadio &#169; is a feature created by Telo (TeloKang ROM) Android Inc. Original Idea atl4ntis (Cataclysm ROM).</string>
@@ -593,7 +590,7 @@
     <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row quantity</string>
 
     <!-- Notification drawer background -->
-    <string name="notification_style_title"><i><b>NP Style</b></i></string>
+    <string name="notification_style_title"><i><b>Notification Panel Style</b></i></string>
     <string name="notification_style_summary">Change your notification drawer style</string>
     <string name="notification_wallpaper_title">Background</string>
     <string name="notification_wallpaper_landscape_title">Different landscape background</string>
