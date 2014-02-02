@@ -1958,8 +1958,6 @@
         </activity>
         
 		<!-- Telo -->
-        <activity android:name=".telokang.activedisplay.ActiveDisplaySettings" /> 
-	
         <activity android:name=".telokang.teloradio.TeloRadioSettings"
             android:label="@string/telo_radio_settings_title"
             android:launchMode="singleTask" 
