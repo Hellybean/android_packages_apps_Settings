@@ -87,6 +87,12 @@
             android:title="@string/navigation_ring_title" 
 	    android:dependency="enable_nav_bar" />
 
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="navigation_bar_left"
+            android:title="@string/navigation_bar_left_title"
+            android:summary="@string/navigation_bar_left_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceScreen
