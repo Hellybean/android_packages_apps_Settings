@@ -64,7 +64,6 @@
         android:key="navigation_bar"
         android:title="@string/navigation_bar_category" >
 
-<<<<<<< HEAD
 	<CheckBoxPreference
             android:key="enable_nav_bar"
             android:title="@string/navbar_enable_bar"
