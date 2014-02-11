@@ -16,6 +16,7 @@
 
 package com.android.settings.cyanogenmod;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
@@ -58,18 +59,14 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
 
     private static final String DISABLE_WALLPAPER_DEFAULT = "1";
 
-    private static final String HIGH_END_GFX_PREF = "pref_is_high_end_gfx";
-
-    private static final String HIGH_END_GFX_PERSIST_PROP = "persist.sys.highendgfx";
+    private static final String FORCE_HIGHEND_GFX_PREF = "pref_force_highend_gfx";
+    private static final String FORCE_HIGHEND_GFX_PERSIST_PROP = "persist.sys.force_highendgfx";
 
     private ListPreference mPerfProfilePref;
     private CheckBoxPreference mUse16bppAlphaPref;
-
     private CheckBoxPreference mDisableBootanimPref;
-
     private CheckBoxPreference mDisableWallpaperPref;
-
-    private CheckBoxPreference mHighEndGfxPref;
+    private CheckBoxPreference mForceHighEndGfx;
 
     private String[] mPerfProfileEntries;
     private String[] mPerfProfileValues;
@@ -135,11 +132,13 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
                 DISABLE_WALLPAPER_DEFAULT);
         mDisableWallpaperPref.setChecked("0".equals(disableWallpaper));
 
-        mHighEndGfxPref = (CheckBoxPreference) prefSet
-                .findPreference(HIGH_END_GFX_PREF);
-        String highEndGfx = SystemProperties.get(HIGH_END_GFX_PERSIST_PROP,
-                android.app.ActivityManager.isHighEndGfx() ? "1" : "0");
-        mHighEndGfxPref.setChecked("1".equals(highEndGfx));
+        if (ActivityManager.isLowRamDeviceStatic()) {
+            mForceHighEndGfx = (CheckBoxPreference) prefSet.findPreference(FORCE_HIGHEND_GFX_PREF);
+            String forceHighendGfx = SystemProperties.get(FORCE_HIGHEND_GFX_PERSIST_PROP, "false");
+            mForceHighEndGfx.setChecked("true".equals(forceHighendGfx));
+        } else {
+            prefSet.removePreference(findPreference(FORCE_HIGHEND_GFX_PREF));
+        }
 
         /* Display the warning dialog */
         alertDialog = new AlertDialog.Builder(getActivity()).create();
@@ -187,9 +186,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements
         } else if (preference == mDisableWallpaperPref) {
             SystemProperties.set(DISABLE_WALLPAPER_PERSIST_PROP,
                     mDisableWallpaperPref.isChecked() ? "0" : "1");
-        } else if (preference == mHighEndGfxPref) {
-            SystemProperties.set(HIGH_END_GFX_PERSIST_PROP,
-                    mHighEndGfxPref.isChecked() ? "1" : "0");
+        } else if (preference == mForceHighEndGfx) {
+            SystemProperties.set(FORCE_HIGHEND_GFX_PERSIST_PROP,
+                    mForceHighEndGfx.isChecked() ? "true" : "false");
         } else {
             // If we didn't handle it, let preferences handle it.
             return super.onPreferenceTreeClick(preferenceScreen, preference);
