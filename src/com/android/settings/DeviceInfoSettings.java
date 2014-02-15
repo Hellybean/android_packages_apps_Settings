@@ -374,8 +374,8 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
         try {
             /* The expected /proc/cpuinfo output is as follows:
-             * Processor	: ARMv7 Processor rev 2 (v7l)
-             * BogoMIPS	: 272.62
+             * Processor    : ARMv7 Processor rev 2 (v7l)
+             * BogoMIPS    : 272.62
              */
             String firstLine = readLine(FILENAME_PROC_CPUINFO);
             if (firstLine != null) {
